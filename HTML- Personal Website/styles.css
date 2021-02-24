@@ -7,9 +7,14 @@ img{
 }
 
 hr{
-    border-color: rgb(255, 255, 255);
+    border-color: rgb(199, 194, 194);
     border-style: dotted none none;
     border-width: 3px;
     width: 98%;
+    height: 10px;
 
+}
+
+h1,h3{
+    color: #0b9696;
 }
