@@ -1,85 +1,152 @@
-body{
+body {
     margin: 0px;
     text-align: center;
 }
 
-.top-container{
+.top-container {
     background-color: #f6f6f6;
     padding-top: 100px;
-    
+
 }
 
-.middle-container{
-   background-color: #dffae3 ; 
+.middle-container {
+    background-color: #dffae3;
 }
 
-h1{
-    margin-top: 0px;
+h1 {
+    margin-top: 100px;
     margin-bottom: 0px;
     color: #49c9c0;
     font-family: 'Great Vibes', cursive;
-    font-size: 100px;
+    font-size: 5rem;
 }
 
-h2{
+h2 {
     font-family: 'Great Vibes', cursive;
     color: #008891;
-    font-size: 60px;
+    font-size: 4rem;
 }
 
-h3{
+h3 {
     font-family: 'Great Vibes', cursive;
     color: #008891;
-    font-size: 40px;
+    font-size: 3rem;
 
 }
-p{
-    color: #49c9c0;
+
+p {
+    color: #aa3ddd;
     font-family: 'Roboto', sans-serif, cursive;
     padding-top: 0%;
-    font-size: 20px;
+    font-size: 1.3rem;
 }
 
-.first-p{
+.first-p {
     color: #49c9c0;
     font-family: 'Roboto', sans-serif, cursive;
     padding-top: 0%;
     font-size: 30px;
 }
 
-.top-cloud{
- position: absolute;
- right: 50px;
- width: 200px;
- top: 10px;
+.top-cloud {
+    position: absolute;
+    right: 50px;
+    width: 10rem;
+    top: 10px;
 }
 
-.bottom-cloud{
+.bottom-cloud {
     position: absolute;
-    width: 200px ;
+    width: 10rem;
     left: 50px;
     top: 100px;
 
 }
 
-.profile-picture{
+.profile{
+    width: 50%;
+    margin: 0px auto 100px auto;
+    line-height: 2;
+}
+
+.profile-picture {
     padding-top: 100px;
     width: 200px;
+    border-radius: 20%;
 }
 
-.tree{
+.tree {
     margin-top: 50px;
     margin-bottom: -70px;
-    }
-
-.skill-one{
-    width: 200px;
 }
 
-.skill-two{
-    width: 200px;
+.skill-one {
+    width: 50%;
+    float: left;
+    margin-right: 30px;
 }
 
-.contact-image{
-    width: 200px;
+.skill-two {
+    width: 50%;
+    float: right;
+    margin-left: 30px;
 }
+
+.skill-row{
+    width: 50%;
+    margin: 100px auto 100px auto;
+    text-align: left;
+    line-height: 2;
+}
+
+.contact-image {
+    width: 200px;
+    border-radius: 5%;
+}
+
+hr {
+    border-color: #49c9c0;
+    ;
+    border-style: dotted none none;
+    border-width: 0.5rem;
+    width: 15%;
+    height: 2rem;
+}
+
+.bottom-container{
+ background-color: #98ded9;
+ margin: 0;
+}
+
+.contact-me{
+    width: 50%;
+    margin: 0px auto 0px auto;
+    line-height: 2;
+    padding-bottom: 50px;
+}
+
+.btn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 8px;
+    text-shadow: 1px 1px 2px #75cfb8;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #75cfb8;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    
+  }
+  
+  .btn:hover {
+    background: #00ad82;
+    text-decoration: none;
+  }
+  
+  .footer-pic{
+      padding: 50px 10px 10px ;
+      width: 2rem;
+  }
+
+  
