@@ -144,9 +144,18 @@ hr {
     text-decoration: none;
   }
   
-  .footer-pic{
-      padding: 50px 10px 10px ;
-      width: 2rem;
+  .footpic{
+      padding: 50px 30px 10px ;
+      color: #008891;
   }
 
-  
+  .footpic:hover{
+    padding: 50px 30px 10px ;
+    color: #006168;
+}
+
+  .foot-link{
+      padding: 50px;
+      margin-bottom: 0px;
+      color: #006168;
+  }
