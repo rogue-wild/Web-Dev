@@ -4,7 +4,7 @@
 //     alert("I got clicked!");
 // }
 
-// or you can write and anonymous function
+// or you can write an anonymous function
 
 // document.querySelector("button").addEventListener("click", function (){ 
 //     alert("I got CLicked");});
