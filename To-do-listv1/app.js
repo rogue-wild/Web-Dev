@@ -5,9 +5,10 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use("view engine", "ejs");
+app.use('view engine', 'ejs');
 
 app.get("/", function (req, res) {
+  
   var today = new Date();
 
   var options = {
@@ -16,7 +17,7 @@ app.get("/", function (req, res) {
     month: "long",
   };
 
-  var day = today.toLocaleDateString("en-IN", options);
+  var day = today.toLocaleDateString("en-US", options);
 
   res.render("list", {
     kindOfDay: day,
