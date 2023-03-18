@@ -5,10 +5,9 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
-  
   var today = new Date();
 
   var options = {
