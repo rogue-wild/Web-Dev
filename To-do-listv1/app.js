@@ -1,39 +1,50 @@
-//jshint esversion:6
-
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
+const date = require(__dirname + '/date.js');
 
 const app = express();
 
-let items = [];
+const listItems = [];
+const workItems = [];
 
-app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
 
-app.get("/", function (req, res) {
-  let today = new Date();
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
-  let options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  };
+app.get("/", function(req, res) {
 
-  let day = today.toLocaleDateString("en-US", options);
+  const day = date.getDate();
 
   res.render("list", {
-    kindOfDay: day,
-    newListItems: items,
+    listTitle: day,
+    listItems: listItems
   });
 });
 
-app.post("/", function (req, res) {
-  let item = req.body.newItem;
+app.get("/work", function(req, res){
+  res.render("list", {
+    listTitle: "Work List",
+    listItems: workItems});
+});
 
-  items.push(item);
+app.post("/", function(req, res){
+
+  if(req.body.listSubmit === "Work"){
+    workItems.push(req.body.newTodo);
+    res.redirect("/work");
+  }else{
+    listItems.push(req.body.newTodo);
+    res.redirect("/");
+  }
+});
+
+app.post("/clear", function (req, res) {
+  listItems.length = 0;
+  workItems.length = 0;
   res.redirect("/");
 });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000.");
+app.listen(3000, function() {
+  console.log("Server running on port 3000.");
 });
