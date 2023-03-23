@@ -9,27 +9,27 @@
 </head>
 
 <body>
-    <h1> <%= kindOfDay %> </h1>
+    <h1>
+        <%= kindOfDay %>
+    </h1>
 
     <ul>
-        <li>Buy Food</li>
-        <li>Cook Food</li>
-        <li>Eat Food</li>
 
-    for (let i = 0; i < newListItems.length; i++) {
-        const element = newListItems[i];
-        console.log(element);
-    }
+        <% for (let i=0; i < newListItems.length; i++) { %>
+            <li>
+                <%= newListItems[i] %>
+            </li>
+            <% } %>
 
     </ul>
 
-   <form class="" action="/" method="post">
-     
-    <input type="text" name="newItem">
-    <button type="submit" name="button">Add</button>
+    <form class="" action="/" method="post">
+
+        <input type="text" name="newItem">
+        <button type="submit" name="button">Add</button>
 
 
-   </form>
+    </form>
 
 </body>
 
