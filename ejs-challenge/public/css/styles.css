@@ -19,6 +19,17 @@
 	padding-bottom: 60px;
 }
 
+.create-post{
+background-color: #1abc9c;
+color:#fff;
+}
+
+.create-post:hover{
+background-color: #008d71;
+color:#fff;
+}
+
+
 .footer {
 	position: absolute;
 	text-align: center;
