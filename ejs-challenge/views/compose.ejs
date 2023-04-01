@@ -1,5 +1,6 @@
 <%- include("partials/header") -%>
-
+ 
+<div class="content-container">
     <h1>Compose</h1>
     <br>
     <div class="mb-3">
@@ -10,11 +11,14 @@
                 autocomplete="off">
             <br>
             <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write some text..."></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="postBody"
+                placeholder="Write some text..."></textarea>
             <br>
             <button class="btn btn-primary" type="submit" name="" value=<%=composeContent %> >Publish</button>
         </form>
     </div>
+
+</div>
 
 
     <%- include("partials/footer") -%>
