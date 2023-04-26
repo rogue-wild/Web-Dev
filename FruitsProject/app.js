@@ -40,7 +40,10 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewURLParser: true });
 
 const fruitSchema = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: [true, "Please check your data entry, no name specified!"]
+    },
     rating: {
         type: Number,
         min: 1,
@@ -57,7 +60,7 @@ const fruit = new Fruit({
     review: "Pretty solid as a fruit."
 });
 
-fruit.save();
+// fruit.save();
 
 const personSchema = new mongoose.Schema({
     name: String,
@@ -71,7 +74,7 @@ const person = new Person({
     age: 55
 });
 
-person.save();
+// person.save();
 
 const kiwi = new Fruit({
     name: "Kiwi",
@@ -110,4 +113,20 @@ Fruit.find()
     })
     .catch(err => console.error(err));
 
-// Fruit.updateOne({ _id: "5f9b0b0b3b0b3c1f0c0b3b0b" }, { name: "Peach" }, function (err) {
+    // Fruit.updateOne({ name: "Apple" },{rating: 9})
+    // .then(() => {
+    // console.log("Successfully updated the document.");
+    // })
+    // .catch(err => {
+    // console.log(err);
+    // });
+
+    Fruit.deleteOne({name: "Apple"})
+      .then(() => {
+        console.log("Successfully deleted");
+        mongoose.connection.close();
+      })
+      .catch(err => {
+        console.log(err);
+        mongoose.connection.close();
+      });
