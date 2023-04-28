@@ -20,7 +20,7 @@ const articleSchema = {
 };
 
 const Article = mongoose.model("Article", articleSchema);
-
+///////////////////////////////////////// Requests Targetting All Articles /////////////////////////////////////////
 app.get("/articles", async function (req, res) {
   try {
     const foundArticles = await Article.find();
