@@ -1,11 +1,11 @@
 //jshint esversion:6
 
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-const encrypt =require("mongoose-encryption");
+const encrypt = require("mongoose-encryption");
 
 const app = express();
 
@@ -19,11 +19,14 @@ mongoose.connect("mongodb://localhost:27017/userDB", {
 });
 
 const userSchema = new mongoose.Schema({
-    email: String,
-    password: String
+  email: String,
+  password: String,
 });
 
-userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ["password"]});
+userSchema.plugin(encrypt, {
+  secret: process.env.SECRET,
+  encryptedFields: ["password"],
+});
 
 const User = new mongoose.model("User", userSchema);
 
@@ -39,10 +42,10 @@ app.get("/register", function (req, res) {
   res.render("register");
 });
 
-app.post("/register", async function(req, res) {
+app.post("/register", async function (req, res) {
   const newUser = new User({
     email: req.body.username,
-    password: req.body.password
+    password: req.body.password,
   });
   try {
     await newUser.save();
@@ -52,7 +55,7 @@ app.post("/register", async function(req, res) {
   }
 });
 
-app.post("/login", async function(req, res) {
+app.post("/login", async function (req, res) {
   const { username, password } = req.body;
   try {
     const foundUser = await User.findOne({ email: username });
@@ -64,7 +67,7 @@ app.post("/login", async function(req, res) {
   }
 });
 
-app.get("/logout", function(req, res) {
+app.get("/logout", function (req, res) {
   res.redirect("/");
 });
 
