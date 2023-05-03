@@ -5,7 +5,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-const encrypt = require("mongoose-encryption");
+// const encrypt = require("mongoose-encryption");
+// const md5 = require("md5");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 const app = express();
 
@@ -23,10 +26,10 @@ const userSchema = new mongoose.Schema({
   password: String,
 });
 
-userSchema.plugin(encrypt, {
-  secret: process.env.SECRET,
-  encryptedFields: ["password"],
-});
+// userSchema.plugin(encrypt, {
+//   secret: process.env.SECRET,
+//   encryptedFields: ["password"],
+// });
 
 const User = new mongoose.model("User", userSchema);
 
@@ -43,28 +46,42 @@ app.get("/register", function (req, res) {
 });
 
 app.post("/register", async function (req, res) {
-  const newUser = new User({
-    email: req.body.username,
-    password: req.body.password,
-  });
-  try {
-    await newUser.save();
-    res.render("secrets");
-  } catch (err) {
-    console.log(err);
-  }
+
+  // ***************************************
+  // try {
+  //   const salt = await bcrypt.genSalt(saltRounds);
+  //   const hash = await bcrypt.hash(req.body.password, salt);
+  //   const newUser = new User({
+  //     email: req.body.username,
+  //     password: hash,
+  //   });
+  //   await newUser.save();
+  //   res.render("secrets");
+  // } catch (err) {
+  //   console.log(err);
+  // }
+  // ***************************************
+
 });
 
 app.post("/login", async function (req, res) {
-  const { username, password } = req.body;
-  try {
-    const foundUser = await User.findOne({ email: username });
-    if (foundUser && foundUser.password === password) {
-      res.render("secrets");
-    }
-  } catch (err) {
-    console.log(err);
-  }
+
+  // ***************************************
+  // const username = req.body.username;
+  // const password = req.body.password;
+  // try {
+  //   const foundUser = await User.findOne({ email: username });
+  //   bcrypt.compare(password, foundUser.password, function(err, result) {
+  //     if (result === true){
+  //       res.render("secrets");
+  //     }
+  // }); 
+  // } catch (err) {
+  //   console.log(err);
+  // }
+  // ***************************************
+
+  
 });
 
 app.get("/logout", function (req, res) {
