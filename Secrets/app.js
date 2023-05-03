@@ -138,9 +138,14 @@ app.post("/login", async function (req, res) {
   // ***************************************
 });
 
-app.get("/logout", function (req, res) {
-  res.redirect("/");
+app.get('/logout', function(req, res){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    // successful logout
+    res.redirect('/');
+  });
 });
+
 
 app.listen(3000, function () {
   console.log("Server started on port 3000");
