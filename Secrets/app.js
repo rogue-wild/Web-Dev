@@ -114,11 +114,14 @@ app.get("/register", function (req, res) {
   res.render("register");
 });
 
-app.get("/secrets", function (req, res) {
-  if (req.isAuthenticated()) {
-    res.render("secrets");
-  } else {
-    res.redirect("/login");
+app.get("/secrets", async function (req, res) {
+  try {
+    const foundUser = await User.find({ secret: { $ne: null } }).exec();
+    if (foundUser) {
+      res.render("secrets", { usersWithSecrets: foundUser });
+    }
+  } catch (err) {
+    console.log(err);
   }
 });
 
@@ -130,21 +133,19 @@ app.get("/submit", function (req, res) {
   }
 });
 
-app.post("/submit", function () {
+app.post("/submit", async function (req, res) {
   const submittedSecret = req.body.secret;
 
-  User.findById(req.user.id, function (err, foundUser) {
-    if (err) {
-      console.log(err);
-    } else {
-      if (foundUser) {
-        foundUser.secret = submittedSecret;
-        foundUser.save(function () {
-          res.redirect("/secrets");
-        });
-      }
+  try {
+    const foundUser = await User.findById(req.user.id);
+    if (foundUser) {
+      foundUser.secret = submittedSecret;
+      await foundUser.save();
+      res.redirect("/secrets");
     }
-  });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.post("/register", async function (req, res) {
