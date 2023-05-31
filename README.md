@@ -1,5 +1,5 @@
-# My Web Development Journey
-Following the 
+# My-Web-Development-Journey
+**Following the** 
 > * Angela Yu Web Development Course.
 
 What I learned in this Course:
@@ -56,4 +56,5 @@ What I learned in this Course:
 12. How to use TypeScript together with Node/ Express
 #
 > * JS-DSA Colt Steele
-
+#
+[Back to Top](#My-Web-Development-Journey)
