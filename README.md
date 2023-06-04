@@ -56,5 +56,19 @@ What I learned in this Course:
 12. How to use TypeScript together with Node/ Express
 #
 > * JS-DSA Colt Steele
+
+What I learned in this Course:
+
+1. Big O notation
+2. ins and outs of Recursion
+3. Searching Algorithms
+4. Sorting Algorithms: Bubble, Selection, Insertion, Quick, Merge and Radix sort.
+5. Linked Lists
+6. Trees
+7. Heaps
+8. Hash Tables
+9. Graphs
+10. Dynamic Programming
+11. Dijkstra's Shortest Path Algorithm
 #
 [Back to Top](#My-Web-Development-Journey)
