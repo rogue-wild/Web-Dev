@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import axios from 'axios';
-import "./NewTodo.css"
+import "./NewTodo.css";
+import "./ParentComponent";
 
 type NewTodoProps = {
   onAddTodo: (todoText: string) => void;
-  onAddList: (list: { id: string, name: string }) => void;
+  onAddList: (list: { id: string; name: string }) => void;
 };
 
 const NewTodo: React.FC<NewTodoProps> = (props) => {
@@ -15,14 +16,24 @@ const NewTodo: React.FC<NewTodoProps> = (props) => {
     const enteredText = textInputRef.current!.value;
     props.onAddTodo(enteredText);
 
-    axios.post('http://localhost:3000/lists', {
-      name: enteredText,
-      colorId: 3
-    })
-      .then(function (response) {
-        props.onAddList(response.data);
+    axios.post(
+      'https://jsonplaceholder.typicode.com/users/1/todos',
+      {
+        id: 'foo',
+        name: 'bar',
+        
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      }
+    )
+      .then((response) => {
+        const json = response.data;
+        props.onAddList(json);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
 
@@ -38,7 +49,6 @@ const NewTodo: React.FC<NewTodoProps> = (props) => {
         <input type="text" name="" id="todo-text" ref={textInputRef} />
       </div>
       <button type="submit">ADD TODO</button>
-      {/* <button type="submit">ADD LIST</button> */}
     </form>
   );
 };

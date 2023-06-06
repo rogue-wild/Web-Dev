@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
 import TodoList from "./components/TodoList";
 import NewTodo from "./components/NewTodo";
-
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<{ id: string; text: string }[]>([]);
@@ -20,10 +18,16 @@ const App: React.FC = () => {
     });
   };
 
-  
+  const todoListAddHandler = (list: { id: string; name: string }) => {
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      { id: list.id, text: list.name },
+    ]);
+  };
+
   return (
     <div className="App">
-      <NewTodo onAddTodo={todoAddHandler} />
+      <NewTodo onAddTodo={todoAddHandler} onAddList={todoListAddHandler} />
       <TodoList items={todos} onDeleteTodo={todoDeleteHandler} />
     </div>
   );
