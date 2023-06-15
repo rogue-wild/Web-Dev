@@ -13,9 +13,9 @@ let myCreateDate = new Date(2023, 0, 23);
 let myCreateDate2 = new Date(2023, 0, 23, 5, 3);
 let myCreateDate3 = new Date("01-14-2023");
 
-console.log(myCreateDate.toDateString());
-console.log(myCreateDate2.toLocaleDateString());
-console.log(myCreateDate3.toLocaleDateString());
+// console.log(myCreateDate.toDateString());
+// console.log(myCreateDate2.toLocaleDateString());
+// console.log(myCreateDate3.toLocaleDateString());
 
 ////////time/////////
 
