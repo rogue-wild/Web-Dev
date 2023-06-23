@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.heading {
+  font-size: calc(2vw + 1rem);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-size: calc(1vw + 0.8rem);
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.button {
+  text-align: center;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-image: linear-gradient(135deg, #c9c9c9 40%, #4c4c4c);
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 150px;
+  box-shadow: 1px 1px 2px grey
+}
+
+.button:hover{
+  box-shadow: 1px 1px 5px grey;
+  color: rgb(106, 106, 106);
+  cursor: pointer;
+}
+
+.button:active {
+    box-shadow: 2px 2px 7px grey;
+    cursor: pointer;
+  
+} 
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  margin-top: 1rem;
+  
+}
+
+.card {
+  text-align: center;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem;
+  max-width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.cardTitle {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.cardContent {
+  font-size: 1rem;
+  padding: 1rem;
+}
