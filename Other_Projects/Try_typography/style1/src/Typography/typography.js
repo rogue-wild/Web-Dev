@@ -17,10 +17,6 @@ const variantsMapping = {
 
 const Typography = ({
   variant,
-  color,
-  align,
-  display,
-  marginBottom,
   children,
   ...props
 }) => {
@@ -28,10 +24,7 @@ const Typography = ({
 
   const classNames = cn({
     [`typography--variant-${variant}`]: variant,
-    [`typography--color-${color}`]: color,
-    [`typography--align-${align}`]: align,
-    [`typography--display-${display}`]: display,
-    [`typography--margin-bottom-${marginBottom}`]: marginBottom,
+   
   });
 
   return (
