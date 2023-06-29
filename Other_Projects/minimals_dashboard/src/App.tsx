@@ -1,12 +1,15 @@
 import React from 'react';
-import Typography from './Typography/typography';
+import SocialMetrics from './components/social_metrics';
+import About from './components/about';
+import SocialLinks from './components/social_links';
+import "./App.css"
 
 function App() {
   return (
     <div className='App'>
-      <Typography variant='h1'>Heading 1</Typography>
-      <Typography variant="text1">Paragraph Text</Typography>
-      <Typography variant="subheading1">Subheading 1</Typography>
+      <SocialMetrics />
+      <About/>
+      <SocialLinks/>
     </div>
   );
 }
