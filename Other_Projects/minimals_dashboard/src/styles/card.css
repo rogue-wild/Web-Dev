@@ -1,9 +1,11 @@
 .Card {
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+    grid-gap: 0.1rem;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1rem;
+    max-width: 40%;
+    box-shadow: 0 1px 5px rgba(130, 130, 130, 0.26);
   }
-  
-  /* Additional CSS styles specific to the Card component can be added here */
   

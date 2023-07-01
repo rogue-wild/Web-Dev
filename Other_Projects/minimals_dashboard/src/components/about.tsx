@@ -1,13 +1,15 @@
 import React from "react";
 import Typography from "../Typography/typography";
-import data from "../data/data.json";
+import {aboutData} from "../services/dataService";
 import "../styles/about.css";
+import { AboutData } from "../types/types";
+import Card from './card';
+
 
 export default function About() {
   return (
     <div>
-      {data &&
-        data.about.map(
+      {aboutData.map(
           ({
             email,
             location,
@@ -15,16 +17,9 @@ export default function About() {
             occupation,
             company_name,
             studied_at,
-          }: {
-            email: string;
-            location: string;
-            about: string;
-            occupation: string;
-            company_name: string;
-            studied_at: string;
-          }) => (
-            <div className="card">
-              <div className="content">
+          }:AboutData) => (
+            <Card>
+              <div>
                 <Typography variant="h6">About</Typography>
                 <Typography variant="text1">{about}</Typography>
                 <Typography variant="text1">
@@ -35,7 +30,7 @@ export default function About() {
                 <Typography variant="text1">💼 {company_name}</Typography>
                 <Typography variant="text1">🎓 {studied_at}</Typography>
               </div>
-            </div>
+            </Card>
           )
         )}
     </div>

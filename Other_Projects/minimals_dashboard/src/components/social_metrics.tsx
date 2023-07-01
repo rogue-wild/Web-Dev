@@ -1,21 +1,20 @@
 import React from "react";
 import Typography from "../Typography/typography";
-import data from "../data/data.json";
 import "../styles/social_metrics.css";
+import {socialMetricsData} from "../services/dataService";
+import { SocialMetricsData } from "../types/types";
+import Card from './card';
+
 
 export default function SocialMetrics() {
   return (
     <div>
-      {data &&
-        data.social_metrics.map(
+      {socialMetricsData.map(
           ({
             followers,
             following,
-          }: {
-            followers: number;
-            following: number;
-          }) => (
-            <div className="card">
+          }: SocialMetricsData) => (
+            <Card>
               <div className="content">
                 <Typography variant="h5">{followers}</Typography>
                 <Typography variant="text2">Followers</Typography>
@@ -25,7 +24,7 @@ export default function SocialMetrics() {
                 <Typography variant="h5">{following}</Typography>
                 <Typography variant="text2">Following</Typography>
               </div>
-            </div>
+            </Card>
           )
         )}
     </div>
