@@ -1,7 +1,7 @@
 {
     "user": [{
-        "id": 1,
-        "name": "Jaydon Frankie"
+        "name": "Jaydon Frankie",
+        "profile_pic": "https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
     }],
 
     "about": [{

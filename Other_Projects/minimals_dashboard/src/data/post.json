@@ -1,45 +1,51 @@
-{ "Posts": {
-    "postData1": {
-        "username": "Jaydon Frankie",
+{
+    "post": [
+    {
+        "postId": 1,
         "date": "02 Jul 2023",
         "caption": "The sun slowly set over the horizon, painting the sky in vibrant hues of orange and pink.",
         "image": "https://api-prod-minimal-v510.vercel.app/assets/images/travel/travel_2.jpg",
-        "likes": "20",
-        "comments": {
-            "comment1": {
+        "likes": 20,
+        "comments": [
+             {
                 "user": "Lainey Davidson",
+                "profile_pic": "https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_6.jpg",
                 "comment": "Wow! This is so beautiful. Great shot!"
             },
-            "comment2": {
+             {
                 "user": "Melanie Noble",
+                "profile_pic": "https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_7.jpg",
                 "comment": "Etiam rhoncus. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed lectus."
-            }
-        }
+            }]
+        
     },
-    "postData2": {
-        "username": "Jaydon Frankie",
+    {
+        "postId": 2,
         "date": "01 Jul 2023",
         "caption": "She eagerly opened the gift, her eyes sparkling with excitement..",
         "image": "https://api-prod-minimal-v510.vercel.app/assets/images/travel/travel_3.jpg",
-        "likes": "20",
-        "comments": {
-            "comment1": {
+        "likes": 20,
+        "comments": 
+            [{
                 "user": "Cristopher Cardenas",
+                "profile_pic": "https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_7.jpg",
                 "comment": "Wow! This is so beautiful. Great shot!"
             },
-            "comment2": {
+             {
                 "user": "Melanie Noble",
+                "profile_pic": "https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_8.jpg",
                 "comment": "Etiam rhoncus. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed lectus."
-            }
-        }
+            }]
+        
     },
-    "postData3": {
-        "username": "Jaydon Frankie",
+    {
+        "postId": 3,
         "date": "30 Jun 2023",
         "caption": "The old oak tree stood tall and majestic, its branches swaying gently in the breeze.",
         "image": "https://api-prod-minimal-v510.vercel.app/assets/images/travel/travel_4.jpg",
-        "likes": "20",
-        "comments": {}
+        "likes": 20,
+        "comments": [{}]
     }
+]
 }
-}
+
