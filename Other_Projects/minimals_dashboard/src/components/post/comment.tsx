@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 interface CommentProps {
   username?: string;
@@ -6,15 +7,40 @@ interface CommentProps {
   comment?: string;
 }
 
+const CommentContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  margin-left: -1rem;
+`;
+
+const CommentWrapper = styled.div`
+  background-color: rgb(245, 245, 246);
+  border-radius: 10px;
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  margin-left: -1rem;
+`;
+
+const CommentImg = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;
+
+const CommentText = styled.p`
+  color: grey;
+`;
+
 const Comment: React.FC<CommentProps> = ({ username, profileImage, comment }) => {
   return (
-    <div className="Comment">
-      <img src={profileImage} alt="Profile" />
-      <div>
+    <CommentContainer>
+      <CommentImg src={profileImage} alt="Profile" />
+      <CommentWrapper>
         <strong>{username}</strong>
-        <p>{comment}</p>
-      </div>
-    </div>
+        <CommentText>{comment}</CommentText>
+      </CommentWrapper>
+    </CommentContainer>
   );
 };
 

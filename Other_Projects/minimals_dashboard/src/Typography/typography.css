@@ -1,37 +1,37 @@
 .typography--variant-h1 {
     font-size:6rem;
     font-weight: 500;
-    line-height: 0.1vh;
+ 
   }
   
   .typography--variant-h2 {
     font-size: 3.75rem;
     font-weight: 500;
-    line-height: 0.1vh;
+  
   }
   
   .typography--variant-h3 {
     font-size: 3rem;
     font-weight: 500;
-    line-height: 0.1vh;
+    
   }
   
   .typography--variant-h4 {
     font-size: 2.125rem;
     font-weight: 500;
-    line-height: 0.1vh;
+    
   }
   
   .typography--variant-h5 {
     font-size: 1.5rem;
     font-weight: 500;
-    line-height: 0.1vh;
+   
   }
   
   .typography--variant-h6 {
     font-size: 1.25rem;
     font-weight: 500;
-    line-height: 0.1vh;
+  
   }
   
   .typography--variant-subheading1 {
@@ -47,8 +47,8 @@
   
   .typography--variant-text1 {
     font-size: 1rem;
-    color: rgb(68, 68, 68);
-    line-height: 3vh;
+    color: rgb(85, 85, 85);
+  
   }
   
   .typography--variant-text2 {

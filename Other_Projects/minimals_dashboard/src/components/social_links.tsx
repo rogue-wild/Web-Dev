@@ -16,7 +16,7 @@ export default function SocialLinks() {
             twitter,
           }: SocialLinksData) => (
             <Card>
-              <div className="content">
+              <div className="linkContent">
                 <Typography variant="h6">Social</Typography>
                 <Typography variant="text1">🔗 {facebook}</Typography>
                 <Typography variant="text1">📸 {instagram}</Typography>

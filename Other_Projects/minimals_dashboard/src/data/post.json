@@ -44,7 +44,7 @@
         "caption": "The old oak tree stood tall and majestic, its branches swaying gently in the breeze.",
         "image": "https://api-prod-minimal-v510.vercel.app/assets/images/travel/travel_4.jpg",
         "likes": 20,
-        "comments": [{}]
+        "comments": []
     }
 ]
 }

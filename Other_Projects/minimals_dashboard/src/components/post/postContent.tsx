@@ -1,17 +1,16 @@
 import React from "react";
+import "../../styles/postContent.css"
 
 interface PostContentProps {
-  date: string;
   caption: string;
   image: string;
 }
 
-const PostContent: React.FC<PostContentProps> = ({ date, caption, image }) => {
+const PostContent: React.FC<PostContentProps> = ({ caption, image }) => {
   return (
     <div className="PostContent">
-      <p>{date}</p>
       <p>{caption}</p>
-      <img src={image} alt="Post" />
+      <img className="contentImg" src={image} alt="Post" />
     </div>
   );
 };

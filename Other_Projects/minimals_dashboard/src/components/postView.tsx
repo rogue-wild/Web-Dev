@@ -15,9 +15,8 @@ export default function PostView() {
     <div>
       {postsData.map((post) => (
         <Card key={post.postId}>
-          <PostHeader />
+          <PostHeader date={post.date} />
           <PostContent
-            date={post.date}
             caption={post.caption}
             image={post.image}
           />

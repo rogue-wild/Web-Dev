@@ -1,6 +1,7 @@
 
-  .content{
+.linkContent{
     text-align: left;
-    position: relative;
+    word-wrap: break-word;
+    margin: -1.5rem 1rem 0rem 1rem;
 }
 

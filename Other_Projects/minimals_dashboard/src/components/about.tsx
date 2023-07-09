@@ -19,7 +19,7 @@ export default function About() {
             studied_at,
           }:AboutData) => (
             <Card>
-              <div>
+              <div className="about">
                 <Typography variant="h6">About</Typography>
                 <Typography variant="text1">{about}</Typography>
                 <Typography variant="text1">
