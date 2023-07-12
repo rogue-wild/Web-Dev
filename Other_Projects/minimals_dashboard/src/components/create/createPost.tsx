@@ -32,8 +32,8 @@ const PostButton = styled.button`
   border: none;
   background-color: rgb(245, 245, 246);
   &:hover {
-    transition: 0.5s;
-    background-color: rgb(213, 213, 213);
+    transition: 0.3s;
+    background-color: rgb(223, 223, 223);
     color: rgb(53, 53, 54);
   }
 `;
@@ -57,7 +57,7 @@ const PostBtn = styled.button`
   font-size: 1rem;
   border: none;
   &:hover {
-    transition: 0.5s;
+    transition: 0.3s;
     background-color: rgb(73, 73, 74);
   }
 `;
