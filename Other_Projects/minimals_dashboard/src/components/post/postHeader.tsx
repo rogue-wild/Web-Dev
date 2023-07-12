@@ -1,29 +1,70 @@
 import React from "react";
+import styled from "styled-components";
 import { userData } from "../../services/dataService";
 import { UserData } from "../../types/types";
-import "../../styles/postHeader.css";
-import Typography from '../../Typography/typography';
+import Typography from "../../Typography/typography";
 
 interface PostProps {
   date?: string;
 }
 
+const PostHeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 1rem 0rem 0rem;
+`;
+
+const HeaderImg = styled.img`
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: inline-block;
+`;
+
+const HeadContent = styled.div`
+  display: flex;
+  margin: 0rem 0rem 0rem 1rem;
+`;
+
+const UserName = styled.div`
+  margin: -2.5rem 0rem 0rem 1.5rem;
+  line-height: 0.1rem;
+`;
+
+const PostHeaderButton = styled.button`
+  background-color: #fff;
+  height: 40px;
+  width: 40px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #292929;
+
+  &:hover {
+    transition: 0.5s;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+  }
+`;
+
 const PostHeader: React.FC<PostProps> = ({ date }) => {
   return (
-    <div className="postHeader">
+    <PostHeaderContainer className="postHeader">
       {userData.map(({ name, profile_pic }: UserData) => (
-        <div className="headContent">
+        <HeadContent className="headContent">
           <div>
-            <img className="headerImg" src={profile_pic} alt="Post" />
+            <HeaderImg className="headerImg" src={profile_pic} alt="Post" />
           </div>
-          <div className="userName">
+          <UserName className="userName">
             <Typography variant="h6">{name}</Typography>
             <Typography variant="text2">{date}</Typography>
-          </div>
-        </div>
+          </UserName>
+        </HeadContent>
       ))}
-      
-      <button>
+
+      <PostHeaderButton>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
@@ -42,8 +83,8 @@ const PostHeader: React.FC<PostProps> = ({ date }) => {
             </g>
           </g>
         </svg>
-      </button>
-    </div>
+      </PostHeaderButton>
+    </PostHeaderContainer>
   );
 };
 

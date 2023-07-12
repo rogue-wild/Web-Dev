@@ -16,10 +16,7 @@ export default function PostView() {
       {postsData.map((post) => (
         <Card key={post.postId}>
           <PostHeader date={post.date} />
-          <PostContent
-            caption={post.caption}
-            image={post.image}
-          />
+          <PostContent caption={post.caption} image={post.image} />
           <LikeShare likeNum={post.likes} />
           <ul>
             {post.comments.map((comment) => (

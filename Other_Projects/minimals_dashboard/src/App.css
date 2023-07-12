@@ -21,7 +21,7 @@ body {
 }
 
 /* Adjust layout for smaller screens */
-@media (max-width: 1000px) {
+@media (max-width: 1047px) {
   .dashboard {
     display: block; /* Remove flex layout */
   }
