@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { GREY, colors } from "../styles/colors";
+import { colors } from "../styles/colors";
 
 interface CardProps {
   children: ReactNode;
@@ -14,7 +14,7 @@ const StyledCard = styled.div`
   border-radius: 16px;
   padding: 0.5rem;
   margin: 1rem;
-  box-shadow: 1px 4px 10px -2px ${GREY[200]};
+  box-shadow: 1px 4px 12px -2px ${colors.shadow.primary};
 `;
 
 const Card: React.FC<CardProps> = ({ children, className }) => {

@@ -43,6 +43,7 @@
   .typography--variant-subheading2 {
     font-size: 0.875rem;
     font-weight: 500;
+    color: rgba(184, 184, 184, 0.721);
   }
   
   .typography--variant-text1 {
@@ -56,3 +57,66 @@
     color: rgb(121, 121, 121);
     font-weight: 600;
   }
+
+  @media (max-width: 511px) {
+    .typography--variant-h1 {
+      font-size:6rem;
+      font-weight: 500;
+   
+    }
+    
+    .typography--variant-h2 {
+      font-size: 3.75rem;
+      font-weight: 500;
+    
+    }
+    
+    .typography--variant-h3 {
+      font-size: 3rem;
+      font-weight: 500;
+      
+    }
+    
+    .typography--variant-h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      
+    }
+    
+    .typography--variant-h5 {
+      font-size: 1rem;
+      font-weight: 700;
+     
+    }
+    
+    .typography--variant-h6 {
+      font-size: 0.9rem;
+      font-weight: 500;
+    
+    }
+    
+    .typography--variant-subheading1 {
+      font-size: 0.8rem;
+      font-weight: 500;
+      
+    }
+    
+    .typography--variant-subheading2 {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: rgba(184, 184, 184, 0.721);
+    }
+    
+    .typography--variant-text1 {
+      font-size: 0.7rem;
+      color: rgb(85, 85, 85);
+    
+    }
+    
+    .typography--variant-text2 {
+      font-size: 0.6rem;
+      color: rgb(121, 121, 121);
+      font-weight: 600;
+    }
+  }
+  

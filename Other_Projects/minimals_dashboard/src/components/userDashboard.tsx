@@ -34,7 +34,7 @@ const ProfilePic = styled.img`
   height: 7.5rem;
   border-radius: 50%;
   object-fit: cover;
-  margin: 4rem 0 0 1rem;
+  margin: 5rem 0 0 1.5rem;
   border: #eeeeee 3px solid;
   position: absolute;
   @media (max-width: 1047px) {
@@ -45,10 +45,10 @@ const ProfilePic = styled.img`
 `;
 
 const HeaderInfo = styled.div`
-  margin-left: 10rem;
+  margin-left: 11rem;
   margin-top: 7rem;
   color: white;
-  line-height: 0.1rem;
+  line-height: 0.2rem;
   @media (max-width: 1047px) {
     text-align: center;
     margin: 8rem auto 2rem auto;
@@ -79,6 +79,11 @@ const TabButton = styled.button`
   }
 `;
 
+const PostOccupation = styled(Typography)`
+  margin: 0rem 0rem 1.5rem 0rem;
+  color: #a4a4a4;
+`;
+
 export default function UserDashboard() {
   return (
     <Card>
@@ -97,9 +102,9 @@ export default function UserDashboard() {
               </Typography>
             ))}
             {aboutData.map(({ occupation }: AboutData) => (
-              <Typography className="" variant="text2" key={occupation}>
+              <PostOccupation className="" variant="subheading2" key={occupation}>
                 {occupation}
-              </Typography>
+              </PostOccupation>
             ))}
           </HeaderInfo>
         </HeaderContainer>

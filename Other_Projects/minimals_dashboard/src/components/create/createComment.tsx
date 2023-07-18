@@ -4,19 +4,23 @@ import { FaSmile, FaFileImage } from "react-icons/fa";
 import { userData } from "../../services/dataService";
 import { UserData } from "../../types/types";
 
+
 const CreateCommentContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 10fr;
   position: relative;
   margin-left: -1rem;
+  @media (max-width: 500px) {
+  margin: 0rem -1rem 0rem -2rem;
+  }
 `;
 
 const CommentTextarea = styled.textarea`
   resize: none;
-  height: 1rem;
+  height: 0.8rem;
   border: #e8e8e8 2px solid;
   border-radius: 10px;
-  margin: 0rem 0rem 0.7rem 1rem;
+  margin: -0.2rem 0rem 0.7rem 1rem;
   padding: 0.5rem;
   font-family: "Public Sans", sans-serif;
   overflow: hidden;
@@ -26,15 +30,22 @@ const CommentTextarea = styled.textarea`
   &:focus {
     outline: none;
   }
+  @media (max-width: 500px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const CommentImg = styled.img`
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  margin: -0.2rem 0.5rem 0rem 2.5rem;
+  margin: -0.4rem 0.5rem 0rem 2.5rem;
   @media (max-width: 700px) {
     margin: -0.2rem 0.2rem 0rem 2.5rem;
+  }
+  @media (max-width: 500px) {
+    width: 2rem;
+  height: 2rem;
   }
   @media (min-width: 1400px) {
     margin: -0.2rem 1.5rem 0rem 2.5rem;
@@ -55,13 +66,16 @@ const IconWrapper = styled.div`
   transition: color 0.3s ease;
 
   svg {
-    color: #959595;
+    color: #adadad;
     font-size: 1rem;
+    @media (max-width: 500px) {
+    font-size: 0.8rem;
+  }
   }
 
   &:hover {
     svg {
-      color: #222222;
+      color: #818181;
     }
   }
 `;
@@ -74,7 +88,7 @@ export default function CreateComment() {
           <CommentImg src={profile_pic} alt="Post" />
         </div>
       ))}
-      <CommentTextarea placeholder="Write a comment here..." />
+      <CommentTextarea placeholder="Write a comment..." />
       <IconContainer>
         <IconWrapper>
           <FaFileImage />

@@ -11,6 +11,9 @@ const CommentContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 10fr;
   margin-left: -1rem;
+  @media (max-width: 600px) {
+  margin: 0rem -1rem 0rem -2rem;
+  }
 `;
 
 const CommentWrapper = styled.div`
@@ -19,7 +22,7 @@ const CommentWrapper = styled.div`
   margin-bottom: 0.7rem;
   margin-right: 1rem;
   font-size: 0.9rem;
-  padding: 0.5rem;
+  padding: 1rem 1rem 0rem 1rem;
   @media (max-width: 747px) {
     margin-left: 1rem;
   }
@@ -29,10 +32,25 @@ const CommentImg = styled.img`
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
+  @media (max-width: 600px) {
+    width: 2rem;
+  height: 2rem;
+  }
 `;
 
 const CommentText = styled.p`
-  color: grey;
+  color: #59656f;
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+`;
+
+const CommentDate = styled.span`
+  color: #adadad;
+  float: right;
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const Comment: React.FC<CommentProps> = ({
@@ -44,7 +62,7 @@ const Comment: React.FC<CommentProps> = ({
     <CommentContainer>
       <CommentImg src={profileImage} alt="Profile" />
       <CommentWrapper>
-        <strong>{username}</strong>
+        <strong>{username}</strong> <CommentDate>10 Jul 2023</CommentDate>
         <CommentText>{comment}</CommentText>
       </CommentWrapper>
     </CommentContainer>

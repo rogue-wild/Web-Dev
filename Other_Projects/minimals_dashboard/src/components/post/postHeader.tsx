@@ -16,10 +16,15 @@ const PostHeaderContainer = styled.div`
 `;
 
 const HeaderImg = styled.img`
-  width: 45px;
-  height: 45px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   display: inline-block;
+  @media (max-width: 600px) {
+    width: 2rem;
+    height: 2rem;
+    margin-top: -0.5rem;
+  }
 `;
 
 const HeadContent = styled.div`
@@ -29,7 +34,7 @@ const HeadContent = styled.div`
 
 const UserName = styled.div`
   margin: -2.5rem 0rem 0rem 1.5rem;
-  line-height: 0.1rem;
+  text-align: left;
 `;
 
 const PostHeaderButton = styled.button`
@@ -39,7 +44,7 @@ const PostHeaderButton = styled.button`
   border: none;
   font-size: 1rem;
   font-weight: 600;
-  color: #292929;
+  color: rgb(41, 41, 41);
 
   &:hover {
     transition: 0.5s;
@@ -47,6 +52,11 @@ const PostHeaderButton = styled.button`
     border: none;
     border-radius: 50%;
   }
+`;
+
+const PostDate = styled(Typography)`
+  margin: -1.7rem 0rem 0rem 0rem;
+  color: #a4a4a4;
 `;
 
 const PostHeader: React.FC<PostProps> = ({ date }) => {
@@ -59,7 +69,7 @@ const PostHeader: React.FC<PostProps> = ({ date }) => {
           </div>
           <UserName className="userName">
             <Typography variant="h6">{name}</Typography>
-            <Typography variant="text2">{date}</Typography>
+            <PostDate variant="text2">{date}</PostDate>
           </UserName>
         </HeadContent>
       ))}

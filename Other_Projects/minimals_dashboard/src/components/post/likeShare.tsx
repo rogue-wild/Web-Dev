@@ -21,6 +21,13 @@ const LikeLabel = styled.label<{ isLiked: boolean }>`
   font-size: 1rem;
   color: ${({ isLiked }) => (isLiked ? "red" : "grey")};
   margin-left: 1.5rem;
+  padding: 0.3rem;
+  &:hover {
+    transition: 0.3s;
+    background-color: #ffefec;
+    border-radius: 45%;
+    padding: 0.3rem;
+  }
 `;
 
 const LikeNum = styled.span`

@@ -2,7 +2,7 @@ export const GREY = {
   0: "#FFFFFF",
   100: "#F9FAFB",
   200: "#F4F6F8",
-  300: "#DFE3E8",
+  300: "#F1F1F8",
   400: "#C4CDD5",
   500: "#919EAB",
   600: "#637381",
@@ -32,6 +32,9 @@ export const colors = {
     disabledOpacity: 0.48,
   },
   border: {
-    primary: "#F9FAF8",
+    primary: "#F4FAF8",
+  },
+  shadow: {
+    primary: "rgba(180, 210, 210, 0.35)",
   },
 };

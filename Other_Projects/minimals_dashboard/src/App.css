@@ -4,31 +4,11 @@ body {
   font-family: 'Public Sans', sans-serif;
 }
 
-.dashboard {
-  width: 100%;
+.navbar{
+  margin-top: 4rem;
+  z-index: 0;
 }
 
-.App {
-  display: flex;
-}
-
-.sidebar {
-  width: 30vw;
-}
-
-.main-content {
-  flex-grow: 1;
-}
-
-/* Adjust layout for smaller screens */
-@media (max-width: 1047px) {
-  .dashboard {
-    display: block; /* Remove flex layout */
-  }
-  .App {
-    display: block;
-  }
-  .sidebar {
-    width: 100%; /* Take up full width */
-  }
+.header{
+  z-index: 1;
 }

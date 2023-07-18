@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Typography from "../../Typography/typography";
 import Card from "../card";
+import { colors } from "../../styles/colors";
 
 const TextPost = styled.div`
   display: grid;
@@ -13,7 +14,7 @@ const TextPost = styled.div`
     height: 6rem;
     border: #e8e8e8 2px solid;
     border-radius: 10px;
-    margin: 0.2rem 0rem 1rem 0rem;
+    margin: 1rem 1rem 1rem 1rem;
     padding: 0.8rem 0rem 0rem 0.5rem;
     font-family: "Public Sans", sans-serif;
     overflow: hidden;
@@ -21,12 +22,16 @@ const TextPost = styled.div`
     &:focus {
       outline: none;
     }
+    @media (max-width: 600px) {
+      margin: 0.5rem 0rem 1rem 0rem;
+      font-size: 0.8rem;
+    }
   }
 `;
 
 const PostButton = styled.button`
   border-radius: 30px;
-  margin: 0.5rem;
+  margin: 1rem;
   padding: 0rem 0.5rem;
   font-weight: bold;
   border: none;
@@ -35,6 +40,9 @@ const PostButton = styled.button`
     transition: 0.3s;
     background-color: rgb(223, 223, 223);
     color: rgb(53, 53, 54);
+  }
+  @media (max-width: 500px) {
+    margin: 0.1rem;
   }
 `;
 
@@ -48,17 +56,21 @@ const StreamingButton = styled(PostButton)`
 
 const PostBtn = styled.button`
   border-radius: 10px;
-  margin: 0.5rem;
+  margin: 0.7rem 1rem 0rem 1rem;
   float: right;
   font-weight: bold;
   padding: 0.7rem;
   background-color: rgb(53, 53, 54);
-  color: #ffffff;
+  color: ${colors.text.primary};
   font-size: 1rem;
   border: none;
   &:hover {
     transition: 0.3s;
     background-color: rgb(73, 73, 74);
+  }
+  @media (max-width: 500px) {
+    margin: 0.1rem;
+    font-size: 0.6rem;
   }
 `;
 

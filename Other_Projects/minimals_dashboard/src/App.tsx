@@ -1,31 +1,24 @@
 import React from "react";
-import SocialMetrics from "./components/social_metrics";
-import About from "./components/about";
-import SocialLinks from "./components/social_links";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ProfileView from "./components/profileView/profileView";
+import AppView from "./components/appView/appView";
+import Navbar from "./components/navbar/navbar";
+import Header from "./components/header/header";
 import "./App.css";
-import UserDashboard from "./components/userDashboard";
-import CreatePost from "./components/create/createPost";
-import PostView from "./components/postView";
 
 function App() {
   return (
-    <div>
-      <div className="dashboard">
-        <UserDashboard />
-      </div>
-
+    <Router>
       <div className="App">
-        <div className="sidebar">
-          <SocialMetrics />
-          <About />
-          <SocialLinks />
-        </div>
-        <div className="main-content">
-          <CreatePost />
-          <PostView />
-        </div>
+        <div className="navbar"><Navbar /></div>
+        <div className="header"> <Header /></div>
+       
+        <Routes>
+          <Route path="/" element={<ProfileView/>} />
+          <Route path="/app" element={<AppView/>} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
