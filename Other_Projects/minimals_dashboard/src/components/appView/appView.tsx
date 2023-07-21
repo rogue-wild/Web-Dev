@@ -8,7 +8,7 @@ const AppCard = styled(Card)`
     flex-direction: column;
     width: 80%;
     background-color: #e4fff2;
-    margin: 6rem 1rem 2rem 6rem;
+    margin: 8rem;
    @media (max-width: 600px) {
     margin: 5rem 0rem 2rem 4rem;
     width: 70%;

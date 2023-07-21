@@ -6,14 +6,15 @@ import "./profileView.css";
 import UserDashboard from "./../userDashboard";
 import CreatePost from "./../create/createPost";
 import PostView from "./../postView";
+import DashView from "./../dashView";
 
 function ProfileView() {
   return (
     <div className="profileView">
+      <DashView/>
       <div className="dashboard">
         <UserDashboard />
       </div>
-
       <div className="App">
         <div className="sidebar">
           <SocialMetrics />

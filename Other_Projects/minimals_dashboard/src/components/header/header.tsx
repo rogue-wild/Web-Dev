@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import userIcon from "../../assets/user.png";
-import settingsIcon from "../../assets/settings.png";
-import logo from "../../assets/twitter.png";
+import settingsIcon from "../../assets/setting.png";
 
 const HeaderWrapper = styled.div`
   position: fixed;
@@ -11,9 +9,8 @@ const HeaderWrapper = styled.div`
   left: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.559);
-  padding: 16px;
+  padding: 1.2rem 0rem 1rem 0rem;
   backdrop-filter: blur(10px);
-  box-shadow: 0 3px 3px rgba(226, 226, 226, 0.576);
 `;
 
 const HeaderLink = styled(Link)`
@@ -25,23 +22,37 @@ const HeaderLink = styled(Link)`
 `;
 
 const Icon = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 1.7rem;
+  height: 1.7rem;
   margin: -0.5rem 0rem;
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  animation: spin 10s linear infinite;
 `;
 
-const Logo = styled.img`
-  width: 35px;
-  height: 35px;
+const ProfilePic = styled.img`
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  border: #eeeeee 2px solid;
   margin: -0.5rem 0rem;
+ 
 `;
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo src={logo} alt="logo" />
       <HeaderLink to="/">
-        <Icon src={userIcon} alt="user" />
+      <ProfilePic
+              alt="Jaydon Frankie"
+              src="https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
+            ></ProfilePic>
       </HeaderLink>
       <HeaderLink to="/settings">
         <Icon src={settingsIcon} alt="settings" />

@@ -9,7 +9,7 @@ const LikeShareContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: -1rem;
+  margin: -1.5rem 0rem 1rem -0.5rem;
 `;
 
 const LikeInput = styled.input`

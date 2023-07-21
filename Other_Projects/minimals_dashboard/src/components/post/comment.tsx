@@ -10,9 +10,9 @@ interface CommentProps {
 const CommentContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 10fr;
-  margin-left: -1rem;
+  margin: 0rem 1rem 0rem -1.5rem;
   @media (max-width: 600px) {
-  margin: 0rem -1rem 0rem -2rem;
+  margin: 0rem 1rem 0rem -2rem;
   }
 `;
 
@@ -20,11 +20,10 @@ const CommentWrapper = styled.div`
   background-color: rgb(245, 245, 246);
   border-radius: 10px;
   margin-bottom: 0.7rem;
-  margin-right: 1rem;
   font-size: 0.9rem;
   padding: 1rem 1rem 0rem 1rem;
   @media (max-width: 747px) {
-    margin-left: 1rem;
+    font-size: 0.7rem;
   }
 `;
 
@@ -32,7 +31,8 @@ const CommentImg = styled.img`
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  @media (max-width: 600px) {
+  padding: 0.5rem;
+  @media (max-width: 700px) {
     width: 2rem;
   height: 2rem;
   }

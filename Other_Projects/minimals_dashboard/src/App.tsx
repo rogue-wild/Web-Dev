@@ -12,7 +12,6 @@ function App() {
       <div className="App">
         <div className="navbar"><Navbar /></div>
         <div className="header"> <Header /></div>
-       
         <Routes>
           <Route path="/" element={<ProfileView/>} />
           <Route path="/app" element={<AppView/>} />

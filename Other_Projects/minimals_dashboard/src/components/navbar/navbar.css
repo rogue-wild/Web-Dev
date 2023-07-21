@@ -1,0 +1,18 @@
+/* Define a CSS variable to store the width of the reference element */
+:root {
+    --reference-width: 100px;
+  }
+  
+  /* Apply the width of the reference element using the CSS variable */
+  .reference-element {
+    width: var(--reference-width);
+  }
+  
+  /* Use a media query to adjust the target element's width */
+  /* This example applies when the viewport width is less than 768px */
+  @media (max-width: 1100px) {
+    .target-element {
+      width: calc(100% - var(--reference-width));
+    }
+  }
+  

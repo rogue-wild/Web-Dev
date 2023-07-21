@@ -9,28 +9,28 @@ const CreateCommentContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 10fr;
   position: relative;
-  margin-left: -1rem;
-  @media (max-width: 500px) {
-  margin: 0rem -1rem 0rem -2rem;
+  z-index:1;
+  margin: 2rem 0rem 0rem 0.5rem;
+  @media (max-width: 600px) {
+    margin: 1.5rem 0rem 0rem 0.5rem;
   }
 `;
 
 const CommentTextarea = styled.textarea`
   resize: none;
-  height: 0.8rem;
+  height: 1rem;
   border: #e8e8e8 2px solid;
   border-radius: 10px;
-  margin: -0.2rem 0rem 0.7rem 1rem;
-  padding: 0.5rem;
+  margin: -1.5rem 0rem 0.5rem 0rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   font-family: "Public Sans", sans-serif;
   overflow: hidden;
-  position: relative;
   margin-right: 1rem;
 
   &:focus {
     outline: none;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     font-size: 0.7rem;
   }
 `;
@@ -39,16 +39,14 @@ const CommentImg = styled.img`
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  margin: -0.4rem 0.5rem 0rem 2.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  margin: -2.2rem 0rem 0rem 0.2rem;
   @media (max-width: 700px) {
-    margin: -0.2rem 0.2rem 0rem 2.5rem;
-  }
-  @media (max-width: 500px) {
     width: 2rem;
-  height: 2rem;
+    height: 2rem;
   }
-  @media (min-width: 1400px) {
-    margin: -0.2rem 1.5rem 0rem 2.5rem;
+  @media (max-width: 600px) {
+    margin: -2.2rem 0rem 0rem -0.2rem;
   }
 `;
 
@@ -56,7 +54,7 @@ const IconContainer = styled.div`
   position: absolute;
   top: 40%;
   right: 1rem;
-  transform: translateY(-50%);
+  transform: translateY(-120%);
   display: flex;
 `;
 
@@ -68,8 +66,8 @@ const IconWrapper = styled.div`
   svg {
     color: #adadad;
     font-size: 1rem;
-    @media (max-width: 500px) {
-    font-size: 0.8rem;
+    @media (max-width: 600px) {
+    font-size: 0.9rem;
   }
   }
 

@@ -37,6 +37,7 @@ const ProfilePic = styled.img`
   margin: 5rem 0 0 1.5rem;
   border: #eeeeee 3px solid;
   position: absolute;
+  z-index: 0;
   @media (max-width: 1047px) {
     width: 3rem;
     height: 3rem;
