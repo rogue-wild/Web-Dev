@@ -1,9 +1,10 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Typography from "../Typography/typography";
 import { aboutData } from "../services/dataService";
-import Card from './card';
+import Card from "./card";
 import { AboutData } from "../types/types";
+import { useTranslation } from "react-i18next";
 
 const AboutContainer = styled.div`
   margin-left: 1rem;
@@ -14,22 +15,40 @@ const AboutContainer = styled.div`
 `;
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <div>
-      {aboutData.map(({ email, location, about, occupation, company_name, studied_at }: AboutData) => (
-        <Card key={email}>
-          <AboutContainer>
-            <Typography variant="h5">About</Typography>
-            <Typography variant="text1">{about}</Typography>
-            <Typography variant="text1">
-              📍 Live at <strong>{location}</strong>
-            </Typography>
-            <Typography variant="text1">📧 {email}</Typography>
-            <Typography variant="text1">💼 {occupation} at <strong>{company_name}</strong></Typography>
-            <Typography variant="text1">🎓 Studied at <strong>{studied_at}</strong></Typography>
-          </AboutContainer>
-        </Card>
-      ))}
+      {aboutData.map(
+        ({
+          email,
+          location,
+          about,
+          occupation,
+          company_name,
+          studied_at,
+        }: AboutData) => (
+          <Card key={email}>
+            <AboutContainer>
+              <Typography variant="h5">{t("about")}</Typography>
+              <Typography variant="text1">{about}</Typography>
+              <Typography variant="text1">
+                {t("location")} <strong>{location}</strong>
+              </Typography>
+              <Typography variant="text1">
+                {t("email")} {email}
+              </Typography>
+              <Typography variant="text1">
+                {t("occupation")} <strong>{occupation}</strong> {t("at")}{" "}
+                <strong>{company_name}</strong>
+              </Typography>
+              <Typography variant="text1">
+                {t("studiedAt")} <strong>{studied_at}</strong>
+              </Typography>
+            </AboutContainer>
+          </Card>
+        )
+      )}
     </div>
   );
 }

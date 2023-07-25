@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { FaSmile, FaFileImage } from "react-icons/fa";
 import { userData } from "../../services/dataService";
 import { UserData } from "../../types/types";
-
+import { useTranslation } from "react-i18next";
 
 const CreateCommentContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 10fr;
   position: relative;
-  z-index:1;
+  z-index: 1;
   margin: 2rem 0rem 0rem 0.5rem;
   @media (max-width: 600px) {
     margin: 1.5rem 0rem 0rem 0.5rem;
@@ -67,8 +67,8 @@ const IconWrapper = styled.div`
     color: #adadad;
     font-size: 1rem;
     @media (max-width: 600px) {
-    font-size: 0.9rem;
-  }
+      font-size: 0.9rem;
+    }
   }
 
   &:hover {
@@ -77,8 +77,9 @@ const IconWrapper = styled.div`
     }
   }
 `;
-
 export default function CreateComment() {
+  const { t } = useTranslation();
+
   return (
     <CreateCommentContainer className="createComment">
       {userData.map(({ profile_pic }: UserData) => (
@@ -86,7 +87,7 @@ export default function CreateComment() {
           <CommentImg src={profile_pic} alt="Post" />
         </div>
       ))}
-      <CommentTextarea placeholder="Write a comment..." />
+      <CommentTextarea placeholder={t("writeComment")} />
       <IconContainer>
         <IconWrapper>
           <FaFileImage />

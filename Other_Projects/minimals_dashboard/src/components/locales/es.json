@@ -1,0 +1,18 @@
+{
+  "app": "Aplicación",
+  "banking": "Banca",
+  "eCommerce": "E-Comercio",
+  "user": "Usuario",
+  "writeComment": "Escribe un comentario...",
+  "imageVideo": "🖼️ Imagen/Video",
+  "streaming": "📹 Streaming",
+  "post": "Publicar",
+  "about": "Acerca de",
+  "location": "📍 Vive en",
+  "email": "📧",
+  "occupation": "💼",
+  "at": "en",
+  "studiedAt": "🎓 Estudió en",
+  "profile": "Perfil",
+  "dashboard": "Panel de control"
+}

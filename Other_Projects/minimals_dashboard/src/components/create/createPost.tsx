@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Typography from "../../Typography/typography";
 import Card from "../card";
 import { colors } from "../../styles/colors";
+import { useTranslation } from "react-i18next";
 
 const TextPost = styled.div`
   display: grid;
@@ -75,19 +76,21 @@ const PostBtn = styled.button`
 `;
 
 export default function CreatePost() {
+  const { t } = useTranslation();
+
   return (
     <Card>
       <TextPost>
-        <textarea placeholder="Share what you are thinking here..."></textarea>
+        <textarea placeholder={t("writeComment")}></textarea>
       </TextPost>
       <div>
         <ImageVideoButton>
-          <Typography variant="text2">🖼️ Image/Video</Typography>
+          <Typography variant="text2">{t("imageVideo")}</Typography>
         </ImageVideoButton>
         <StreamingButton>
-          <Typography variant="text2">📹 Streaming</Typography>
+          <Typography variant="text2">{t("streaming")}</Typography>
         </StreamingButton>
-        <PostBtn>Post</PostBtn>
+        <PostBtn>{t("post")}</PostBtn>
       </div>
     </Card>
   );

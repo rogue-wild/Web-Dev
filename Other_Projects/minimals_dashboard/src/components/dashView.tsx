@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Typography from "../Typography/typography";
+import { useTranslation } from "react-i18next";
 
 const DashViewWrapper = styled.div`
   margin: 1rem 1rem 0rem 1rem;
+  @media (max-width: 500px) {
+    margin: 4rem 1rem 0rem 1rem;
+  }
 `;
 
 const AboveText = styled.div`
@@ -32,15 +36,17 @@ const Link = styled.a`
 `;
 
 function DashView() {
+  const { t } = useTranslation();
+
   return (
     <DashViewWrapper>
       <AboveText>
-        <Typography variant="h4">Profile</Typography>
+        <Typography variant="h4">{t("profile")}</Typography>
         <Typography variant="subheading1">
-          <Link href="#dash">Dashboard</Link>
+          <Link href="#dash">{t("dashboard")}</Link>
           <DashList>
             <DashListLi>
-              <Link href="#user">User</Link>
+              <Link href="#user">{t("user")}</Link>
             </DashListLi>
             <DashListLi>Jaydon Frankie</DashListLi>
           </DashList>

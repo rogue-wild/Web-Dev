@@ -1,0 +1,25 @@
+{
+    "user": {
+      "name": "Jaydon Frankie",
+      "profilePic": "https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
+    },
+    "about": {
+      "email": "ashlynn_ohara62@gmail.com",
+      "about": "Amo el pastel de azúcar, amo las galletas de avena. Rollos dulces, caramelos que amo. Tarta de topping...",
+      "location": "Andorra",
+      "occupation": "Analista de Datos",
+      "companyName": "Gleichner, Mueller y Tromp",
+      "studiedAt": "Nikolaus - Leuschke"
+    },
+    "socialMetrics": {
+      "followers": 1947,
+      "following": 9124
+    },
+    "socialLinks": {
+      "facebook": "https://www.facebook.com/caitlyn.kerluke",
+      "instagram": "https://www.instagram.com/caitlyn.kerluke",
+      "linkedin": "https://www.linkedin.com/in/caitlyn.kerluke",
+      "twitter": "https://www.twitter.com/caitlyn.kerluke"
+    }
+  }
+  

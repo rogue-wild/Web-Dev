@@ -24,8 +24,14 @@ type TypographyProps = {
   className?: string;
 };
 
-const Typography: React.FC<TypographyProps> = ({ variant, children, className, ...props }) => {
-  const Component = variantsMapping[variant as keyof typeof variantsMapping] || "p";
+const Typography: React.FC<TypographyProps> = ({
+  variant,
+  children,
+  className,
+  ...props
+}) => {
+  const Component =
+    variantsMapping[variant as keyof typeof variantsMapping] || "p";
   const classNames = `typography--variant-${variant} ${className || ""}`;
 
   return (

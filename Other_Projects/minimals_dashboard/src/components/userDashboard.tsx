@@ -103,7 +103,11 @@ export default function UserDashboard() {
               </Typography>
             ))}
             {aboutData.map(({ occupation }: AboutData) => (
-              <PostOccupation className="" variant="subheading2" key={occupation}>
+              <PostOccupation
+                className=""
+                variant="subheading2"
+                key={occupation}
+              >
                 {occupation}
               </PostOccupation>
             ))}

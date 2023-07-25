@@ -1,0 +1,18 @@
+{
+  "app": "App",
+  "banking": "Banking",
+  "eCommerce": "E-Commerce",
+  "user": "User",
+  "writeComment": "Write a comment...",
+  "imageVideo": "🖼️ Image/Video",
+  "streaming": "📹 Streaming",
+  "post": "Post",
+  "about": "About",
+  "location": "📍 Live at",
+  "email": "📧",
+  "occupation": "💼",
+  "at": "at",
+  "studiedAt": "🎓 Studied at",
+  "profile": "Profile",
+  "dashboard": "Dashboard"
+}

@@ -4,12 +4,3 @@ body {
   font-family: 'Public Sans', sans-serif;
 }
 
-.navbar{
-  margin-top: 4rem;
-  z-index: 5;
-}
-
-.header{
-  z-index: 4;
-}
-

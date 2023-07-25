@@ -12,7 +12,7 @@ const CommentContainer = styled.div`
   grid-template-columns: 1fr 10fr;
   margin: 0rem 1rem 0rem -1.5rem;
   @media (max-width: 600px) {
-  margin: 0rem 1rem 0rem -2rem;
+    margin: 0rem 1rem 0rem -2rem;
   }
 `;
 
@@ -34,7 +34,7 @@ const CommentImg = styled.img`
   padding: 0.5rem;
   @media (max-width: 700px) {
     width: 2rem;
-  height: 2rem;
+    height: 2rem;
   }
 `;
 

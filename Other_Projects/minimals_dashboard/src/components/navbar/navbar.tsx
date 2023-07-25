@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
+import { useTranslation } from "react-i18next";
 
 const NavbarWrapper = styled.div`
-  margin-top: -5rem;
+  margin-top: -1rem;
   position: relative;
+  z-index: 5;
 `;
 
 const Overlay = styled.div<{ showOverlay: boolean }>`
@@ -98,6 +100,8 @@ const Icon = styled.svg`
 `;
 
 const Navbar = () => {
+  const { t } = useTranslation();
+
   const [showNavbarWrapInside, setShowNavbarWrapInside] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -137,7 +141,6 @@ const Navbar = () => {
   return (
     <NavbarWrapper>
       <Toggle onClick={handleToggleNavbarWrapInside}>
-        {" "}
         <Menu
           xmlns="http://www.w3.org/2000/svg"
           id="Layer_1"
@@ -176,7 +179,7 @@ const Navbar = () => {
               <path d="M298.667,149.333h64v64c0,11.782,9.551,21.333,21.333,21.333c11.782,0,21.333-9.551,21.333-21.333v-64h64   c11.782,0,21.333-9.551,21.333-21.333s-9.551-21.333-21.333-21.333h-64v-64c0-11.782-9.551-21.333-21.333-21.333   c-11.782,0-21.333,9.551-21.333,21.333v64h-64c-11.782,0-21.333,9.551-21.333,21.333S286.885,149.333,298.667,149.333z" />
             </g>
           </Icon>
-          <p>App</p>
+          <p>{t("app")}</p>
         </NavbarButton>
         <NavbarButton to="/bank">
           <Icon
@@ -189,7 +192,7 @@ const Navbar = () => {
           >
             <path d="m.291 8.552a2.443 2.443 0 0 1 .153-2.566 4.716 4.716 0 0 1 1.668-1.5l7.501-3.904a5.174 5.174 0 0 1 4.774 0l7.5 3.907a4.716 4.716 0 0 1 1.668 1.5 2.443 2.443 0 0 1 .153 2.566 2.713 2.713 0 0 1 -2.416 1.445h-18.584a2.713 2.713 0 0 1 -2.417-1.448zm22.709 13.448a2 2 0 0 0 -2-2v-8h-2v8h-3v-8h-2v8h-4v-8h-2v8h-3v-8h-2v8a2 2 0 0 0 -2 2 1 1 0 0 0 0 2h22a1 1 0 0 0 0-2z" />
           </Icon>
-          <p>Banking</p>
+          <p>{t("banking")}</p>
         </NavbarButton>
         <NavbarButton to="/cart">
           <Icon
@@ -202,7 +205,7 @@ const Navbar = () => {
           >
             <path d="M23.32,4.1c-.57-.7-1.42-1.1-2.32-1.1H7.24l-.04-.35c-.18-1.51-1.46-2.65-2.98-2.65h-1.22c-.55,0-1,.45-1,1s.45,1,1,1h1.22c.51,0,.93,.38,.99,.88l1.38,11.7c.3,2.52,2.43,4.42,4.97,4.42h8.44c.55,0,1-.45,1-1s-.45-1-1-1H11.56c-1.29,0-2.4-.83-2.82-2h9.42c2.38,0,4.44-1.69,4.9-4.02l.88-4.39c.18-.88-.05-1.79-.62-2.49ZM11,22c0,1.1-.9,2-2,2s-2-.9-2-2,.9-2,2-2,2,.9,2,2Zm9,0c0,1.1-.9,2-2,2s-2-.9-2-2,.9-2,2-2,2,.9,2,2ZM0,6c0-.55,.45-1,1-1h1.54c.55,0,1,.45,1,1s-.45,1-1,1H1c-.55,0-1-.45-1-1Zm0,4c0-.55,.45-1,1-1H3c.55,0,1,.45,1,1s-.45,1-1,1H1c-.55,0-1-.45-1-1Zm5,4c0,.55-.45,1-1,1H1c-.55,0-1-.45-1-1s.45-1,1-1h3c.55,0,1,.45,1,1Z" />
           </Icon>
-          <p>E-Commerce</p>
+          <p>{t("eCommerce")}</p>
         </NavbarButton>
         <NavbarButton to="/">
           <Icon
@@ -216,7 +219,7 @@ const Navbar = () => {
             <circle cx="12" cy="8" r="2" />
             <path d="M12,16a5.006,5.006,0,0,0-5,5v3H17V21A5.006,5.006,0,0,0,12,16Z" />
           </Icon>
-          <p>User</p>
+          <p>{t("user")}</p>
         </NavbarButton>
       </NavbarWrapInside>
     </NavbarWrapper>

@@ -11,7 +11,7 @@ import DashView from "./../dashView";
 function ProfileView() {
   return (
     <div className="profileView">
-      <DashView/>
+      <DashView />
       <div className="dashboard">
         <UserDashboard />
       </div>

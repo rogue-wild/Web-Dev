@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import settingsIcon from "../../assets/setting.png";
+import { useTranslation } from "react-i18next";
 
 const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 4;
   background-color: rgba(255, 255, 255, 0.559);
   padding: 1.2rem 0rem 1rem 0rem;
   backdrop-filter: blur(10px);
@@ -45,7 +47,21 @@ const ProfilePic = styled.img`
  
 `;
 
-const Header = () => {
+const LangSwitchButton = styled.button`
+  background: none;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  float: right;
+  margin-right: 1rem;
+  cursor: pointer;
+  `;
+
+export const Header = () => {
+  const { i18n } = useTranslation(); // Use the useTranslation hook to access t() function and i18n object
+    const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng); // Function to change the language
+    };
   return (
     <HeaderWrapper>
       <HeaderLink to="/">
@@ -57,6 +73,8 @@ const Header = () => {
       <HeaderLink to="/settings">
         <Icon src={settingsIcon} alt="settings" />
       </HeaderLink>
+      <LangSwitchButton onClick={() => changeLanguage("en")}>EN &#x1F1EC;&#x1F1E7;</LangSwitchButton>
+      <LangSwitchButton onClick={() => changeLanguage("es")}>ES &#x1F1EA;&#x1F1F8;</LangSwitchButton>
     </HeaderWrapper>
   );
 };
