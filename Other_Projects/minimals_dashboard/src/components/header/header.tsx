@@ -73,8 +73,8 @@ export const Header = () => {
       <HeaderLink to="/settings">
         <Icon src={settingsIcon} alt="settings" />
       </HeaderLink>
-      <LangSwitchButton onClick={() => changeLanguage("en")}>EN &#x1F1EC;&#x1F1E7;</LangSwitchButton>
-      <LangSwitchButton onClick={() => changeLanguage("es")}>ES &#x1F1EA;&#x1F1F8;</LangSwitchButton>
+      <LangSwitchButton onClick={() => changeLanguage("en")}>EN</LangSwitchButton>
+      <LangSwitchButton onClick={() => changeLanguage("es")}>ES</LangSwitchButton>
     </HeaderWrapper>
   );
 };

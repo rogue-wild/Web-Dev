@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Typography from "../Typography/typography";
-import { aboutData, userData } from "../services/dataService";
-import { UserData, AboutData } from "../types/types";
-import Card from "./card";
+import Typography from "../../typography/typography";
+import { aboutData, userData } from "../../services/dataService";
+import { UserData, AboutData } from "../../types/types";
+import Card from "../../styles/card";
 
 const HeaderItems = styled.div`
   display: flex;

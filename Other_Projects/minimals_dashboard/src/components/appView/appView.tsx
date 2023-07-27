@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Typography from "../../Typography/typography";
-import Card from "./../card";
+import Typography from "../../typography/typography";
+import Card from "../../styles/card";
 
 const AppCard = styled(Card)`
     display: flex;

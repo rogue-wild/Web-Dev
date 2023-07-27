@@ -1,12 +1,12 @@
 import React from "react";
-import postData from "../data/post.json";
-import Card from "./card";
-import { Post } from "../types/types";
-import PostHeader from "./post/postHeader";
-import PostContent from "./post/postContent";
-import LikeShare from "./post/likeShare";
-import Comment from "./post/comment";
-import CreateComment from "../components/create/createComment";
+import postData from "../../data/post.json";
+import Card from "../../styles/card";
+import { Post } from "../../types/types";
+import PostHeader from "./postHeader";
+import PostContent from "./postContent";
+import LikeShare from "./likeShare";
+import Comment from "./comment";
+import CreateComment from "../create/createComment";
 
 export default function PostView() {
   const postsData: Post[] = postData.post;

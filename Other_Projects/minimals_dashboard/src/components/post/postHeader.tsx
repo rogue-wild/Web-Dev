@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { userData } from "../../services/dataService";
 import { UserData } from "../../types/types";
-import Typography from "../../Typography/typography";
+import Typography from "../../typography/typography";
 
 interface PostProps {
   date?: string;

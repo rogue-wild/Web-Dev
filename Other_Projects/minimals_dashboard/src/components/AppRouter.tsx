@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProfileView from "./profileView/profileView";
 import AppView from "./appView/appView";
-import NavbarHeader from "./NavbarHeader";
+import NavbarHeader from "./navbarHeader"
 
 function AppRouter() {
   return (

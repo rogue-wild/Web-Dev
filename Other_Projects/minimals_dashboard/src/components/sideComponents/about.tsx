@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Typography from "../Typography/typography";
-import { aboutData } from "../services/dataService";
-import Card from "./card";
-import { AboutData } from "../types/types";
+import Typography from "../../typography/typography";
+import { aboutData } from "../../services/dataService";
+import Card from "../../styles/card";
+import { AboutData } from "../../types/types";
 import { useTranslation } from "react-i18next";
 
 const AboutContainer = styled.div`

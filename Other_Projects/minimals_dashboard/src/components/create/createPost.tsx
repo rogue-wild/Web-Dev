@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Typography from "../../Typography/typography";
-import Card from "../card";
+import Typography from "../../typography/typography";
+import Card from "../../styles/card";
 import { colors } from "../../styles/colors";
 import { useTranslation } from "react-i18next";
 

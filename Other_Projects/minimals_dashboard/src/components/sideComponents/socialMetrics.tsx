@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Typography from "../Typography/typography";
-import { socialMetricsData } from "../services/dataService";
-import { SocialMetricsData } from "../types/types";
-import Card from "./card";
+import Typography from "../../typography/typography";
+import { socialMetricsData } from "../../services/dataService";
+import { SocialMetricsData } from "../../types/types";
+import Card from "../../styles/card";
 
 const AlignDiv = styled.div`
   display: flex;

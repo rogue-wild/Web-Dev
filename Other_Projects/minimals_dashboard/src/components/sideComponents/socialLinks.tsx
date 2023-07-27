@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Typography from "../Typography/typography";
-import { socialLinksData } from "../services/dataService";
-import { SocialLinksData } from "../types/types";
-import Card from "./card";
+import Typography from "../../typography/typography";
+import { socialLinksData } from "../../services/dataService";
+import { SocialLinksData } from "../../types/types";
+import Card from "../../styles/card";
 
 const LinkContent = styled.div`
   text-align: left;

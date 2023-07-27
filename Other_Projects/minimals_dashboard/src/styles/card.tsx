@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { colors } from "../styles/colors";
+import { colors } from "./colors";
 
 interface CardProps {
   children: ReactNode;
