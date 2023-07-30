@@ -1,15 +1,20 @@
+// NavbarHeader.tsx
+import React from "react";
 import Navbar from "./navbar/navbar";
-import Header from "./header/header";
+import { Header } from "./header/header";
 
-function NavbarHeader() {
+interface NavbarHeaderProps {
+  onLogout: () => void;
+}
+
+function NavbarHeader({ onLogout }: NavbarHeaderProps) {
   return (
     <div>
       <div className="navbar">
         <Navbar />
       </div>
-
       <div className="header">
-        <Header />
+        <Header onLogout={onLogout} />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
-import React from "react";
+// Header.tsx
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import settingsIcon from "../../assets/setting.png";
@@ -44,7 +45,7 @@ const ProfilePic = styled.img`
   border-radius: 50%;
   border: #eeeeee 2px solid;
   margin: -0.5rem 0rem;
- 
+  cursor: pointer;
 `;
 
 const LangSwitchButton = styled.button`
@@ -55,20 +56,58 @@ const LangSwitchButton = styled.button`
   float: right;
   margin-right: 1rem;
   cursor: pointer;
-  `;
+`;
 
-export const Header = () => {
-  const { i18n } = useTranslation(); // Use the useTranslation hook to access t() function and i18n object
-    const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng); // Function to change the language
-    };
+const DropdownContent = styled.div<{ isVisible: boolean }>`
+  display: ${(props) => (props.isVisible ? "block" : "none")};
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  z-index: 1;
+`;
+
+const DropdownItem = styled.div`
+  padding: 8px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
+`;
+
+export const Header = ({ onLogout }: { onLogout: () => void }) => {
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const { i18n } = useTranslation();
+
+  const toggleDropdown = () => {
+    setDropdownVisible((prevState) => !prevState);
+  };
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const handleLogout = () => {
+    onLogout();
+  };
+
   return (
     <HeaderWrapper>
       <HeaderLink to="/">
-      <ProfilePic
-              alt="Jaydon Frankie"
-              src="https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
-            ></ProfilePic>
+        <ProfilePic
+          alt="Jaydon Frankie"
+          src="https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
+          onClick={toggleDropdown}
+        ></ProfilePic>
+        {isDropdownVisible && (
+          <DropdownContent isVisible={isDropdownVisible}>
+            <DropdownItem onClick={handleLogout}>Logout</DropdownItem>
+          </DropdownContent>
+        )}
       </HeaderLink>
       <HeaderLink to="/settings">
         <Icon src={settingsIcon} alt="settings" />
@@ -78,5 +117,3 @@ export const Header = () => {
     </HeaderWrapper>
   );
 };
-
-export default Header;
