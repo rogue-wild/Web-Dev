@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Typography from "../../typography/typography";
+import Typography from "../typography/typography";
 import { aboutData, userData } from "../../services/dataService";
 import { UserData, AboutData } from "../../types/types";
 import Card from "../../styles/card";

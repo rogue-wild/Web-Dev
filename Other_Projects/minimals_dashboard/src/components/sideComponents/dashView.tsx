@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Typography from "../../typography/typography";
+import Typography from "../typography/typography";
 import { useTranslation } from "react-i18next";
 
 const DashViewWrapper = styled.div`
