@@ -1,12 +1,12 @@
 import React from "react";
-import SocialMetrics from "../sideComponents/socialMetrics";
-import About from "../sideComponents/about";
-import SocialLinks from "../sideComponents/socialLinks";
+import SocialMetrics from "../../infoCards/socialMetrics";
+import About from "../../infoCards/about";
+import SocialLinks from "../../infoCards/socialLinks";
 import "./profileView.css";
-import UserDashboard from "../post/userDashboard";
-import CreatePost from "./../create/createPost";
-import PostView from "../post/postView";
-import DashView from "../sideComponents/dashView";
+import UserDashboard from "../../post/userDashboard";
+import CreatePost from "../../create/createPost";
+import PostView from "../../post/postView";
+import DashView from "../../infoCards/dashView";
 
 function ProfileView() {
   return (

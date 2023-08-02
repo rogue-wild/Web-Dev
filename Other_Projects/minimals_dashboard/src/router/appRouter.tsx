@@ -1,9 +1,9 @@
 // AppRouter.js
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProfileView from "../components/profile/profileView";
-import AppView from "../components/app/appView";
-import LoginPage from "../components/loginPage";
+import ProfileView from "../components/Screens/profile/profileView";
+import AppView from "../components/Screens/appView";
+import LoginPage from "../components/Screens/loginPage";
 import NavbarHeader from "../components/navbarHeader";
 
 function AppRouter() {
