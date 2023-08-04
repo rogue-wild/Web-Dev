@@ -1,7 +1,7 @@
 // LoginPage.tsx
 import React, { useState } from "react";
 import styled from "styled-components";
-import LoginImage from "../../assets/Account-amico.png";
+import LoginImage from "../assets/Account-amico.png";
 
 interface LoginPageProps {
   onLogin: () => void;
