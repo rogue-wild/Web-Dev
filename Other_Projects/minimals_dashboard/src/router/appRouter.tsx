@@ -5,6 +5,7 @@ import ProfileView from "../screens/profile/profileView";
 import AppView from "../screens/appView";
 import LoginPage from "../screens/loginPage";
 import NavbarHeader from "../components/navbarHeader";
+import AccountPage from "../screens/accountPage";
 
 function AppRouter() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -26,6 +27,7 @@ function AppRouter() {
             <React.Fragment>
               <Route path="/" element={<ProfileView />} />
               <Route path="/app" element={<AppView />} />
+              <Route path="/settings" element={<AccountPage />} />
             </React.Fragment>
           ) : (
             <Route path="/" element={<LoginPage onLogin={handleLogin} />} />

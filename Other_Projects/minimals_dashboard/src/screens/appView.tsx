@@ -22,7 +22,7 @@ const LinkContent = styled.div`
   color: #00ba54;
 `;
 
-export default function SocialLinks() {
+export default function AppView() {
   return (
         <AppCard>
             <LinkContent>
