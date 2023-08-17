@@ -6,13 +6,10 @@ import { useTranslation } from "react-i18next";
 import Card from "../styles/card";
 import { colors } from "../styles/colors";
 
-
 interface FormData {
   name: string;
   email: string;
-  
 }
-
 
 const DashViewWrapper = styled.div`
   margin: 3rem 1rem 0rem 7rem;
@@ -252,11 +249,10 @@ const Select = styled.select`
 `;
 
 const PostBtn = styled.button`
-
-:root {
+  :root {
     --reference-width: 100px;
-  }  
-   .reference-element {
+  }
+  .reference-element {
     width: var(--reference-width);
   }
   border-radius: 10px;
@@ -374,7 +370,6 @@ function AccountPage() {
   const initialFormData: FormData = {
     name: "",
     email: "",
-    
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -506,7 +501,7 @@ function AccountPage() {
             </FormField>
             <FormField>
               <Label htmlFor="country">Country</Label>
-              <Select id="country" name="country"></Select>
+              <Select id="country" name="country">
                 <option value="  " selected>
                   Select a country
                 </option>
@@ -758,6 +753,7 @@ function AccountPage() {
                 <option value="YU">Yugoslavia</option>
                 <option value="ZM">Zambia</option>
                 <option value="ZW">Zimbabwe</option>
+              </Select>
             </FormField>
             <FormField>
               <Label htmlFor="state">State/Region</Label>
@@ -777,7 +773,6 @@ function AccountPage() {
             </FormField>
             <PostBtn type="submit">{t("save")}</PostBtn>
           </Form>
-          
         </Card2>
       </AppCard>
     </DashViewWrapper>
