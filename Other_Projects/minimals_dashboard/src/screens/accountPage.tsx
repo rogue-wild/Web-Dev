@@ -109,26 +109,21 @@ const TabButton = styled.button`
   }
 `;
 
-const ProfileUpdate = styled.div`
-  display: block;
-`;
-
-const UpdatePic = styled(Typography)`
-  visibility: hidden;
+const ImageOverlay = styled.div`
+  position: absolute;
   justify-content: center;
   opacity: 0;
-  position: absolute;
-  transform: translate(5.3vw, -26.5vh);
+  top: 5px;
+  left: 5px;
   background-color: rgba(114, 114, 114, 0.679);
   color: white;
-  padding: 0.2rem 0.5rem;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  padding: 2rem;
-  font-size: 0.8rem;
-  overflow: hidden;
   text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 95%;
   transition: opacity 0.3s, visibility 0.3s;
   cursor: pointer;
   &:hover {
@@ -137,20 +132,26 @@ const UpdatePic = styled(Typography)`
   }
 `;
 
-const ProfilePic = styled.img`
+const ProfileUpdate = styled.div`
+  position: relative;
   width: 7.5rem;
   height: 7.5rem;
+  border-radius: 50%;
+  margin: 3rem auto;
+`;
+
+const UpdatePic = styled(Typography)`
+  font-size: 0.8rem;
+  overflow: hidden;
+  color: white;
+`;
+
+const ProfilePic = styled.img`
   border-radius: 50%;
   margin: 2rem 0rem 1rem 0rem;
   border: #f4f4f4 5px double;
   cursor: pointer;
-  position: relative;
-  display: inline-block;
-
-  &:hover + ${UpdatePic} {
-    visibility: visible;
-    opacity: 1;
-  }
+  display: block;
 `;
 
 const Form = styled.form`
@@ -299,13 +300,13 @@ const DelBtn = styled.button`
     background-color: rgb(255, 200, 200);
   }
   @media (max-width: 1100px) {
-    margin: -4rem 2rem 0rem 0rem;
+    margin: -4rem 2rem 1rem 0rem;
   }
   @media (max-width: 1000px) {
-    margin: -4rem 1rem 0rem 0rem;
+    margin: -4rem 1rem 1rem 0rem;
   }
   @media (max-width: 600px) {
-    margin: -4rem 1rem 0rem 0rem;
+    margin: -4rem 1rem 1rem 0rem;
     font-size: 0.8rem;
     font-size: 0.8rem;
   }
@@ -449,10 +450,12 @@ function AccountPage() {
               alt="Jaydon Frankie"
               src="https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
             ></ProfilePic>
-            <UpdatePic variant="text2">
-              <FaFileImage />
-              Update Photo
-            </UpdatePic>
+            <ImageOverlay>
+            <FaFileImage />
+              <UpdatePic variant="text2">
+                Update Photo
+              </UpdatePic>
+            </ImageOverlay>
           </ProfileUpdate>
           <Typography variant="text2">
             Allowed *.jpeg, *.jpg, *.png, *.gif
