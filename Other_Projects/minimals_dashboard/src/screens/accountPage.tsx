@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import styled from "styled-components";
 import Typography from "../components/typography/typography";
 import { FaFileImage } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import Card from "../styles/card";
 import { colors } from "../styles/colors";
+
+
+interface FormData {
+  name: string;
+  email: string;
+  
+}
+
 
 const DashViewWrapper = styled.div`
   margin: 3rem 1rem 0rem 7rem;
@@ -104,11 +112,16 @@ const TabButton = styled.button`
   }
 `;
 
+const ProfileUpdate = styled.div`
+  display: block;
+`;
+
 const UpdatePic = styled(Typography)`
   visibility: hidden;
+  justify-content: center;
   opacity: 0;
   position: absolute;
-  transform: translate(57%, -137%);
+  transform: translate(5.3vw, -26.5vh);
   background-color: rgba(114, 114, 114, 0.679);
   color: white;
   padding: 0.2rem 0.5rem;
@@ -117,6 +130,8 @@ const UpdatePic = styled(Typography)`
   height: 3rem;
   padding: 2rem;
   font-size: 0.8rem;
+  overflow: hidden;
+  text-align: center;
   transition: opacity 0.3s, visibility 0.3s;
   cursor: pointer;
   &:hover {
@@ -133,6 +148,7 @@ const ProfilePic = styled.img`
   border: #f4f4f4 5px double;
   cursor: pointer;
   position: relative;
+  display: inline-block;
 
   &:hover + ${UpdatePic} {
     visibility: visible;
@@ -140,41 +156,15 @@ const ProfilePic = styled.img`
   }
 `;
 
-let Slider = styled.input`  
-  
-  width: 15%;
-  height: 1rem;
-  border-radius: 5px;
-  background: #32ba00;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background: #32ba00;
-    cursor: pointer;
-  }
-  &::-moz-range-thumb {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background: #32ba00;
-    cursor: pointer;
-  }
-`;
-
 const Form = styled.form`
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 1rem 0rem;
+  justify-content: space-evenly;
   grid-template-columns: 1fr 1fr;
   @media (max-width: 600px) {
     display: block;
   }
+  margin-bottom: 2rem;
 `;
 
 const FormField = styled.div`
@@ -186,7 +176,7 @@ const FormField = styled.div`
   }
   @media (max-width: 600px) {
     display: block;
-    margin: 1rem 0rem 0rem 1rem;
+    margin: 0rem 0rem 0rem 1rem;
   }
 `;
 
@@ -212,7 +202,7 @@ const Input = styled.input`
   height: 5vh;
   @media (max-width: 1100px) {
     width: 32vw;
-    margin: 0rem 1rem 1rem 0rem;
+    margin: 0rem 0rem 0rem 0rem;
   }
   @media (max-width: 600px) {
     display: block;
@@ -224,15 +214,14 @@ const Input = styled.input`
 const TextArea = styled.textarea`
   overflow: hidden;
   resize: none;
-  width: 56.5vw;
+  width: 56vw;
   height: 4rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 0.8rem 0rem 0rem 0.5rem;
   font-family: "Public Sans", sans-serif;
   overflow: hidden;
-  margin-bottom: 2rem;
-  
+  margin-bottom: 5rem;
   @media (max-width: 1100px) {
     width: 74vw;
     margin: 0rem 1rem 8rem 0rem;
@@ -263,10 +252,21 @@ const Select = styled.select`
 `;
 
 const PostBtn = styled.button`
+
+:root {
+    --reference-width: 100px;
+  }  
+   .reference-element {
+    width: var(--reference-width);
+  }
   border-radius: 10px;
+  position: relative;
   margin: 0.7rem 1rem 1rem 1rem;
-  float: right;
+  left: calc(80% - var(--reference-width));
+  top: 7rem;
   padding: 0.7rem;
+  width: 8rem;
+  height: 3rem;
   background-color: rgb(53, 53, 54);
   color: ${colors.text.primary};
   font-size: 1rem;
@@ -276,13 +276,14 @@ const PostBtn = styled.button`
     background-color: rgb(73, 73, 74);
   }
   @media (max-width: 1100px) {
-    margin: -4rem 2rem 0rem 0rem;
+    margin: 0.7rem 2rem 0rem 0rem;
   }
   @media (max-width: 1000px) {
-    margin: -4rem 1rem 0rem 0rem;
+    margin: 0.7rem 1rem 0rem 0rem;
   }
   @media (max-width: 600px) {
-    margin: -4rem 1rem 0rem 0rem;
+    left: calc(60% - var(--reference-width));
+    top: -2rem;
     font-size: 0.8rem;
     font-size: 0.8rem;
   }
@@ -314,16 +315,101 @@ const DelBtn = styled.button`
   }
 `;
 
+const SwitchLabel = styled.label`
+  display: inline-block;
+  height: 1.2rem;
+  position: relative;
+  width: 2rem;
+  margin: 0.8rem 0rem 2rem 0.5rem;
+  @media (max-width: 511px) {
+    margin: 0.5rem 0rem 2rem 1rem;
+  }
+`;
+
+const Slider = styled.span`
+  padding: 2px;
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: -2px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transition: 0.4s;
+  border-radius: 34px;
+  bottom: 0px;
+  &:before {
+    background-color: #fff;
+    content: "";
+    height: 1rem;
+    left: 2px;
+    right: -1px;
+    position: absolute;
+    transition: 0.4s;
+    width: 1rem;
+    border-radius: 50%;
+  }
+`;
+
+const SwitchInput = styled.input`
+  display: none;
+
+  &:checked + ${Slider} {
+    background-color: #66bb6a;
+  }
+
+  &:checked + ${Slider}:before {
+    transform: translateX(0.9rem);
+  }
+`;
+
+const SliderDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 function AccountPage() {
   const { t } = useTranslation();
-  const [sliderValue, setSliderValue] = useState(1); // Initial value for the slider
 
-  const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseInt(event.target.value);
-    setSliderValue(newValue);
+  const initialFormData: FormData = {
+    name: "",
+    email: "",
+    
   };
 
+  const [formData, setFormData] = useState(initialFormData);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  function validateForm() {
+    let errors: Record<string, string> = {};
+    let isValid = true;
+
+    if (!formData.name) {
+      isValid = false;
+      errors.name = "Name is required";
+    }
+
+    if (!formData.email) {
+      isValid = false;
+      errors.email = "Email is required";
+    }
+
+    setFormErrors(errors);
+    return isValid;
+  }
+
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (validateForm()) {
+      alert("Save success!");
+    }
+  }
 
   return (
     <DashViewWrapper>
@@ -363,7 +449,7 @@ function AccountPage() {
       </Tab>
       <AppCard>
         <Card1>
-          <div>
+          <ProfileUpdate>
             <ProfilePic
               alt="Jaydon Frankie"
               src="https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
@@ -372,31 +458,43 @@ function AccountPage() {
               <FaFileImage />
               Update Photo
             </UpdatePic>
-          </div>
+          </ProfileUpdate>
           <Typography variant="text2">
             Allowed *.jpeg, *.jpg, *.png, *.gif
           </Typography>
           <Typography variant="text2">max size of 3.1 MB</Typography>
-          <Typography variant="text1">Public Profile <Slider
-          type="range"
-          min="0"
-          max="1"
-          value={sliderValue} // Bind the slider value to the state variable
-          onChange={handleSliderChange} // Use the onChange event for consistent event handling
-          id="myRange"
-        /></Typography>
-          
+          <SliderDiv>
+            <Typography variant="text1">Public Profile </Typography>
+            <SwitchLabel htmlFor="checkbox">
+              <SwitchInput type="checkbox" id="checkbox" />
+              <Slider></Slider>
+            </SwitchLabel>
+          </SliderDiv>
           <DelBtn>Delete User</DelBtn>
         </Card1>
         <Card2>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <FormField>
               <Label htmlFor="name">Name</Label>
-              <Input type="text" id="name" name="name" />
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+              {formErrors.name && <p className="error">{formErrors.name}</p>}
             </FormField>
             <FormField>
               <Label htmlFor="email">Email</Label>
-              <Input type="email" id="email" name="email" />
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+              {formErrors.email && <p className="error">{formErrors.email}</p>}
             </FormField>
             <FormField>
               <Label htmlFor="phone">Phone Number</Label>
@@ -408,7 +506,7 @@ function AccountPage() {
             </FormField>
             <FormField>
               <Label htmlFor="country">Country</Label>
-              <Select id="country" name="country">
+              <Select id="country" name="country"></Select>
                 <option value="  " selected>
                   Select a country
                 </option>
@@ -660,7 +758,6 @@ function AccountPage() {
                 <option value="YU">Yugoslavia</option>
                 <option value="ZM">Zambia</option>
                 <option value="ZW">Zimbabwe</option>
-              </Select>
             </FormField>
             <FormField>
               <Label htmlFor="state">State/Region</Label>
@@ -678,8 +775,9 @@ function AccountPage() {
               <Label htmlFor="about">About</Label>
               <TextArea id="about" name="about" />
             </FormField>
+            <PostBtn type="submit">{t("save")}</PostBtn>
           </Form>
-          <PostBtn>{t("save")}</PostBtn>
+          
         </Card2>
       </AppCard>
     </DashViewWrapper>
