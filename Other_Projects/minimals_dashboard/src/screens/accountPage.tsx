@@ -1,15 +1,11 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Typography from "../components/typography/typography";
 import { FaFileImage } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import Card from "../styles/card";
 import { colors } from "../styles/colors";
-
-interface FormData {
-  name: string;
-  email: string;
-}
+import axios from "axios";
 
 const DashViewWrapper = styled.div`
   margin: 3rem 1rem 0rem 7rem;
@@ -113,8 +109,8 @@ const ImageOverlay = styled.div`
   position: absolute;
   justify-content: center;
   opacity: 0;
-  top: 5px;
-  left: 5px;
+  top: 8px;
+  left: 8px;
   background-color: rgba(114, 114, 114, 0.679);
   color: white;
   border-radius: 50%;
@@ -148,6 +144,8 @@ const UpdatePic = styled(Typography)`
 
 const ProfilePic = styled.img`
   border-radius: 50%;
+  width: 7.5rem;
+  height: 7.5rem;
   margin: 2rem 0rem 1rem 0rem;
   border: #f4f4f4 5px double;
   cursor: pointer;
@@ -156,48 +154,73 @@ const ProfilePic = styled.img`
 
 const Form = styled.form`
   display: grid;
-  grid-gap: 1rem 0rem;
+  grid-gap: -1rem -1rem;
+  margin: 1rem 1rem 1rem 0.5rem;
   justify-content: space-evenly;
   grid-template-columns: 1fr 1fr;
   @media (max-width: 600px) {
     display: block;
+    margin: 1rem 2rem 1rem -0.5rem;
   }
-  margin-bottom: 2rem;
 `;
 
 const FormField = styled.div`
   width: 25vw;
   margin: 1rem 0rem -1rem 1rem;
   text-align: center;
+  padding: 0.5rem 0rem;
+
   &:focus-within label {
-    color: black;
+    transform: translateY(-0.5rem) scale(0.9);
+    transition: 0.5s;
+    color: #000000;
+    background-color: #ffffff;
+    visibility: visible;
+    padding: 0rem 0.2rem;
+    &.error {
+      color: red;
+    }
   }
   @media (max-width: 600px) {
     display: block;
     margin: 0rem 0rem 0rem 1rem;
+    &:focus-within label {
+      transform: translateY(0.4rem) scale(0.9);
+      transition: 0.5s;
+      color: black;
+      background-color: #ffffff;
+      visibility: visible;
+      padding: 0rem 0.2rem;
+      &.error {
+        color: red;
+      }
+    }
   }
 `;
 
 const Label = styled.label`
-  float: left;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 400;
   color: grey;
-  margin-bottom: -0.5rem;
+  margin-bottom: -5rem;
   z-index: 2;
-  position: relative;
-  background-color: white;
-  margin-left: 1rem;
-  padding: 0 0.2rem;
-  transition: 0.3s;
+  position: absolute;
+  margin-left: 0.5rem;
+  padding: 0.7rem 0.2rem;
+  display: block;
+  visibility: hidden;
+  &.error {
+    color: red;
+  }
 `;
 
 const Input = styled.input`
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid #bababa;
   border-radius: 4px;
   width: 25vw;
   height: 5vh;
+
   @media (max-width: 1100px) {
     width: 32vw;
     margin: 0rem 0rem 0rem 0rem;
@@ -207,12 +230,28 @@ const Input = styled.input`
     margin: 1rem 1rem 1rem 0rem;
     width: 70vw;
   }
+
+  &::placeholder {
+    color: grey;
+    font-weight: 400;
+    font-size: 0.9rem;
+    font-family: "Public Sans", sans-serif;
+    visibility: visible;
+  }
+
+  &:focus::placeholder {
+    visibility: hidden;
+  }
+
+  &.error:focus {
+    border-color: red;
+  }
 `;
 
 const TextArea = styled.textarea`
   overflow: hidden;
   resize: none;
-  width: 56vw;
+  width: 55vw;
   height: 4rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -221,13 +260,23 @@ const TextArea = styled.textarea`
   overflow: hidden;
   margin-bottom: 5rem;
   @media (max-width: 1100px) {
-    width: 74vw;
+    width: 72vw;
     margin: 0rem 1rem 8rem 0rem;
   }
   @media (max-width: 600px) {
     margin: 0.5rem 1rem 5rem 0rem;
     font-size: 0.8rem;
     width: 72vw;
+  }
+  &::placeholder {
+    color: grey;
+    font-weight: 400;
+    font-size: 0.9rem;
+    font-family: "Public Sans", sans-serif;
+    visibility: visible;
+  }
+  &:focus::placeholder {
+    visibility: hidden;
   }
 `;
 
@@ -247,6 +296,16 @@ const Select = styled.select`
     width: 73vw;
     height: 10vh;
   }
+
+  &:focus {
+    border: 1px solid #ccc;
+  }
+`;
+
+const ErrorLine = styled.p`
+  float: left;
+  color: #ff1500;
+  font-size: 0.8rem;
 `;
 
 const PostBtn = styled.button`
@@ -259,7 +318,7 @@ const PostBtn = styled.button`
   border-radius: 10px;
   position: relative;
   margin: 0.7rem 1rem 1rem 1rem;
-  left: calc(80% - var(--reference-width));
+  left: calc(82% - var(--reference-width));
   top: 7rem;
   padding: 0.7rem;
   width: 8rem;
@@ -279,7 +338,7 @@ const PostBtn = styled.button`
     margin: 0.7rem 1rem 0rem 0rem;
   }
   @media (max-width: 600px) {
-    left: calc(60% - var(--reference-width));
+    left: calc(70% - var(--reference-width));
     top: -2rem;
     font-size: 0.8rem;
     font-size: 0.8rem;
@@ -368,13 +427,62 @@ const SliderDiv = styled.div`
 function AccountPage() {
   const { t } = useTranslation();
 
-  const initialFormData: FormData = {
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
-  };
+    profileImage: "",
+  });
 
-  const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  async function uploadFile(file: File) {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await axios.post(
+        "https://api.escuelajs.co/api/v1/files/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      throw error;
+    }
+  }
+
+  async function handlePhotoUpdate() {
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+
+    fileInput.addEventListener("change", async (event) => {
+      const inputElement = event.target as HTMLInputElement;
+      const selectedFile = inputElement.files ? inputElement.files[0] : null;
+
+      if (selectedFile) {
+        try {
+          const response = await uploadFile(selectedFile);
+
+          if (response.location) {
+            setFormData({ ...formData, profileImage: response.location });
+
+            alert("File uploaded successfully.");
+          } else {
+            alert("File upload failed.");
+          }
+        } catch (error) {
+          console.error("Error uploading file:", error);
+        }
+      }
+    });
+
+    fileInput.click();
+  }
 
   function validateForm() {
     let errors: Record<string, string> = {};
@@ -391,10 +499,11 @@ function AccountPage() {
     }
 
     setFormErrors(errors);
+
     return isValid;
   }
 
-  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   }
@@ -448,13 +557,14 @@ function AccountPage() {
           <ProfileUpdate>
             <ProfilePic
               alt="Jaydon Frankie"
-              src="https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
+              src={
+                formData.profileImage ||
+                "https://api-prod-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg"
+              }
             ></ProfilePic>
-            <ImageOverlay>
-            <FaFileImage />
-              <UpdatePic variant="text2">
-                Update Photo
-              </UpdatePic>
+            <ImageOverlay onClick={handlePhotoUpdate}>
+              <FaFileImage />
+              <UpdatePic variant="text2">Update Photo</UpdatePic>
             </ImageOverlay>
           </ProfileUpdate>
           <Typography variant="text2">
@@ -473,42 +583,65 @@ function AccountPage() {
         <Card2>
           <Form onSubmit={handleSubmit}>
             <FormField>
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name" className={formErrors.name ? "error" : ""}>
+                Name
+              </Label>
               <Input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
+                placeholder="Name"
               />
-              {formErrors.name && <p className="error">{formErrors.name}</p>}
+              {formErrors.name && (
+                <ErrorLine className="error">{formErrors.name}</ErrorLine>
+              )}
             </FormField>
             <FormField>
-              <Label htmlFor="email">Email</Label>
+              <Label
+                htmlFor="email"
+                className={formErrors.email ? "error" : ""}
+              >
+                Email
+              </Label>
               <Input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
+                placeholder="Email"
               />
-              {formErrors.email && <p className="error">{formErrors.email}</p>}
+              {formErrors.email && (
+                <ErrorLine className="error">{formErrors.email}</ErrorLine>
+              )}
             </FormField>
             <FormField>
               <Label htmlFor="phone">Phone Number</Label>
-              <Input type="tel" id="phone" name="phone" />
+              <Input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Phone Number"
+              />
             </FormField>
             <FormField>
               <Label htmlFor="address">Address</Label>
-              <Input type="text" id="address" name="address" />
+              <Input
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Address"
+              />
             </FormField>
             <FormField>
               <Label htmlFor="country">Country</Label>
               <Select id="country" name="country">
-                <option value="  " selected>
-                  Select a country
+                <option hidden value="--">
+                  Country
                 </option>
-                <option value="--">Not Specified</option>
+                <option disabled>Not Specified</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AL">Albania</option>
                 <option value="DZ">Algeria</option>
@@ -760,19 +893,24 @@ function AccountPage() {
             </FormField>
             <FormField>
               <Label htmlFor="state">State/Region</Label>
-              <Input type="text" id="state" name="state" />
+              <Input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="State/Region"
+              />
             </FormField>
             <FormField>
               <Label htmlFor="city">City</Label>
-              <Input type="text" id="city" name="city" />
+              <Input type="text" id="city" name="city" placeholder="City" />
             </FormField>
             <FormField>
               <Label htmlFor="zip">Zip/Code</Label>
-              <Input type="number" id="zip" name="zip" />
+              <Input type="number" id="zip" name="zip" placeholder="Zip/Code" />
             </FormField>
             <FormField>
               <Label htmlFor="about">About</Label>
-              <TextArea id="about" name="about" />
+              <TextArea id="about" name="about" placeholder="About" />
             </FormField>
             <PostBtn type="submit">{t("save")}</PostBtn>
           </Form>
