@@ -7,7 +7,7 @@ const mySym = Symbol("key1");
 
 const JsUser = {
   name: "Hitesh",
-  "full Name": "hitesh chaoudhary",
+  "full Name": "hitesh chaoudhary", // you can write the keys with double quotes also or without it
   [mySym]: "mykey1",
   age: 30,
   loaction: "jaipur",
@@ -16,10 +16,10 @@ const JsUser = {
   lastLoginDays: ["Monday", "Sunday"],
 };
 
-// console.log(JsUser.email);
-// console.log(JsUser["full Name"]);
-// console.log(typeof JsUser.mySym);
-// console.log(JsUser["mySym"]); // here used as symbol
+// console.log(JsUser.email); //when accessing with .dot
+// console.log(JsUser["full Name"]); //when accessing without .dot
+// console.log(typeof JsUser.mySym);//here returns string
+// console.log(JsUser["mySym"]); // here used as symbol. it returns Symbol
 
 // JsUser.email = "abcd@gmail.com";
 // Object.freeze(JsUser); //this freezes the value of JsUser

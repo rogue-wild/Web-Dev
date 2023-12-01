@@ -4,7 +4,7 @@ let myDate = new Date();
 
 console.log(myDate); // 2023-12-01T06:04:27.891Z
 
-console.log(myDate.toString()); // Fri Dec 01 2023 11:34:27 GMT+0530 (India Standard Time)
+console.log(myDate.toString()); // Fri Dec 01 2023 11:34:27 GMT+0530  (India Standard Time)
 
 console.log(myDate.toDateString()); // Fri Dec 01 2023
 
