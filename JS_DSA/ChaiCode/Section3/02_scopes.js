@@ -15,3 +15,5 @@ const addTwo = function (num) {
   // here the function is also variable
   return num + 2;
 };
+
+//in the browser console the core scope is different then the scope of a variable in node terminal.
