@@ -83,19 +83,28 @@ const course = {
 
 //course.courseInstructor
 // const { courseInstructor} = course; same as below
-const { courseInstructor: Instructor } = course;
-console.log(Instructor);
+const { courseInstructor: instructor } = course;
+console.log(instructor);
 
 // const navbar = ({company}) => {};
 // destructuring in react
 // navbar((company = "hitesh"));
 
 
+
 //  .......................API.......................... //
 
-// data from APIs come in the form of objects or array
+// JSON data from APIs come in the form of objects(this object doesn't have a name) or array
+// usually both keys and values both are strings
 // {
 //   "name": "hitesh"
 //   "coursename": "js in hindi",
 //   "price": "free"
-// } JSON exmaple
+// }         JSON example
+ 
+// array format
+// [  
+//     {},
+//     {},
+//     {}
+// ]
