@@ -9,11 +9,11 @@ console.log("02" > 1); // doesnot give reliable outputs
 
 console.log(null > 0); //false
 console.log(null == 0); //false
-console.log(null >= 0); //true
+console.log(null >= 0); //true  always avoid these types of conversions
 
 console.log(undefined == 0); //false
 console.log(undefined > 0); //false
-console.log(undefined < 0); //false  always these types of conversions 
+console.log(undefined < 0); //false  always avoid these types of conversions 
 
 //the reason is that an equality check == and comparisons > < >= <= work differently
 // Comparisons convert null to a number, testing it as 0. That's why (3) null >=0 is true and null >0 is false

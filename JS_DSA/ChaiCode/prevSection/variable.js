@@ -2,7 +2,7 @@ const accountId = 8371983;
 let accountEmail = "vishnu@gmail.com";
 var accountPassword = "43124"; //do not use because of issue in block and functional scope
 
-accountCity = "Jaipur"; // should be this type of variable declaration bad practice
+accountCity = "Jaipur"; // should avoid this type of variable declaration bad practice
 
 let accountState; //undefined variables because no value is assigned
 
