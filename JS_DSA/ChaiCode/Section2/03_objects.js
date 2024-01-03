@@ -22,7 +22,7 @@ const JsUser = {
 // console.log(JsUser["mySym"]); // here used as symbol. it returns Symbol
 
 // JsUser.email = "abcd@gmail.com";
-// Object.freeze(JsUser); //this freezes the value of JsUser
+// Object.freeze(JsUser); //it freezes the value of JsUser
 // JsUser.email ="123@gmail.com"
 // console.log(JsUser["email"]);
 // console.log(JsUser);
