@@ -6,7 +6,7 @@
 
 addone(5);
 function addone(num) {
-  // this run because there is no initialization step but only declration
+  // this runs because there is no initialization step but only declaration
   return num + 1;
 }
 
