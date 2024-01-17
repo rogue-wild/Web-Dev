@@ -45,3 +45,15 @@
 //     })()
 
 // In this example, the semicolon at the beginning ensures that the IIFE is treated as a separate statement, even if the previous line of code (potentially in another file) didn't end with a semicolon.
+
+// An initial parenthesis is one case where the automatic semicolon insertion (ASI) in JavaScript can cause problems; the expression is instead interpreted as a call to the last term on the preceding line. In some styles that omit optional semicolons, the semicolon is placed in front of the parenthesis, and is known as a defensive semicolon. For example:
+
+// a = b + c
+// ;(function () {
+//   // code
+// })();
+// ...to avoid being parsed as c().
+
+(function functionName() {
+        // function logic
+       }()); // may be written like this as well (note the extra parentheses) to help show that the function is immediately invoked (IIFE) and to assist code parsers in understanding the function expression.
