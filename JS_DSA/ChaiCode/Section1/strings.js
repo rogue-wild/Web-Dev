@@ -19,7 +19,7 @@ const newString = gameName.substring(0, 4);
 console.log(newString);// new small or sub string form existing one with range
 
 const anotherString = gameName.slice(1, 4);
-console.log(anotherString);
+console.log(anotherString);// new small or sub string form existing one with range
 
 const stringOne = " vishnu  ";
 console.log(stringOne);
