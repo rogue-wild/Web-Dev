@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body style="background-color: #555; color: aliceblue;">
+        <ul class="language">
+                <li>JavaScript</li>
+        </ul>
+</body>
+<script>
+        function addLanguage(langName) {
+                const li = document.createElement("li");
+                li.innerHTML = `${langName}`;
+                document.querySelector(".language").appendChild(li)
+        }
+
+        addLanguage("Python");
+        addLanguage("TypeScript");
+
+        function addLanguageOptimised(langName) {
+                //this is more optimised method because we don't have to traverse whole tree like the above method. 
+                const li = document.createElement("li");
+                li.appendChild(document.createTextNode(langName));
+                document.querySelector(".language").appendChild(li);
+        }
+
+        addLanguageOptimised("GoLang")
+
+        //Edit Values
+        const secondLang = document.querySelector("li:nth-child(2)")
+        // secondLang.innerHTML = "Mojo"
+        const newli = document.createElement("li")
+        newli.textContent = "Mojo"
+
+        secondLang.replaceWith(newli);
+
+
+        //edit the first li
+        const firstLang = document.querySelector("li:first-child")
+        firstLang.outerHTML = "<li>C++</li>"
+
+        //remove the last li
+        const lastLang = document.querySelector("li:last-child");
+        lastLang.remove(); //this will remove the last li element from the list
+</script>
+
+</html>

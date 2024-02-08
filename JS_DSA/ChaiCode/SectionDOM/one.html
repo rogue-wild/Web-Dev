@@ -1,21 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
         <meta charset="UTF-8">
-      
+
         <title>DOM Learning</title>
         <style>
-                .bg-black{
+                .bg-black {
                         background-color: #777;
                         color: white;
-                        padding: 20px;
                 }
         </style>
 </head>
-<body>
-<div class="bg-black">
-        <h1 class="heading">DOM Learning on Chai aur Code</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quaerat, porro repellendus veniam commodi laborum illo nobis similique ratione ipsa quod quam, eius soluta, quisquam assumenda natus autem odit placeat!</p>
-</div>
+
+<body class="bg-black">
+        <div>
+                <h1 id="title" class="heading">DOM Learning on <span style="display: none;">Test text Check</span></h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quaerat, porro repellendus veniam
+                        commodi laborum illo nobis similique ratione ipsa quod quam, eius soluta, quisquam assumenda
+                        natus autem odit placeat!</p>
+                <input type="text" name="" id="">
+                <ul>
+                        <li class="list-item">One</li>
+                        <li class="list-item">One</li>
+                        <li class="list-item">Two</li>
+                        <li class="list-item">Three</li>
+                        <!-- 
+                                tempLiList = document.querySelectorAll("li")
+                                NodeList(3) [li, li, li]
+                                a node list is not an array but it is an array like object
+
+                                tempLiList[0].stye.color = "red" 
+                                it will change the color of the first li element to red
+
+                                tempLiList.forEach(function (l) { l.style.backgroundColor = "green"})
+                                it will change the background color of all the li elements to green
+                         -->
+
+                         <!-- 
+document.getElementsByClassName("list-item")
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+HTMLCollection is an array like object but not an array
+
+const tempClassList = document.getElementsByClassName("list-item");
+undefined
+
+
+tempClassList
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+convert HTMLCollection to an array
+Array.from(tempClassList);
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+const myConvArray = Array.from(tempClassList);
+undefined
+
+myConvArray
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+myConvArray.forEach(function (li){li.style.color = "blue"});
+this will change the color of all the li elements to blue
+                          -->
+                </ul>
+        </div>
 </body>
+
 </html>
+
+
+<!--  window -> document -> html -> body -> div -> h1
+ window -> document -> html -> head -> title -->
+
+<!-- DOM Selectors -->
+
+<!-- 
+*window object is the parent object of the browser and it is the global object of the browser
+
+*document object is the child object of the window object and it is the global object of the document
+
+*document object is the parent object of the html tag
+
+*html tag is the parent object of the head and body tag
+
+*when you type document.links in the console, it will show all the links in the document in the form of an html collection and not an array 
+-->
+
+<!-- 
+document.getElementById("title")
+<h1 id=​"title" class=​"heading">​DOM Learning on​</h1>​
+
+document.getElementById("title").id
+'title'
+
+document.getElementById("title").class
+undefined
+
+document.getElementById("title").className
+'heading 
+
+-->
+
+<!-- 
+
+document.getElementById("title").getAttribute("id")
+'title'
+
+document.getElementById("title").getAttribute("class")
+'heading'
+
+document.getElementById("title").setAttribute('class','test')
+undefined -->
+
+<!-- const title = document.getElementById("title") -->
+
+<!-- 
+
+title.textContent
+'DOM Learning on'
+
+title.innerHTML
+'DOM Learning on'
+
+title.innerText
+'DOM Learning on' 
+-->
+
+<!--    
+title.innerText
+'DOM Learning on'
+it will not show the hidden text
+
+title.innerHTML
+'DOM Learning on <span style="display: none;">Test text Check</span>'
+it will show the hidden text and the span tag as well 
+
+title.textContent
+'DOM Learning on Test text Check'
+it will show the hidden text but not the span tag
+
+-->
+
+<!-- 
+document.querySelector("h1");
+<h1 id=​"title" class=​"heading">​…​</h1>​
+
+document.querySelector(".heading");
+<h1 id=​"title" class=​"heading">​…​</h1>​"DOM Learning on "<span style=​"display:​ none;​">​Test text Check​</span>​</h1>​
+
+
+ -->
