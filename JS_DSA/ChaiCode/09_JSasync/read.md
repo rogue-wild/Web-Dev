@@ -3,10 +3,6 @@
 - Async is a short form of Asynchronous. It means that the code will not run in a sequence. It will run in a parallel way.
 - In the async code, the code will not wait for the previous code to be executed. It will execute the code in a parallel way.
 
-## What is the use of async?
-- The main use of async is to make the code run in a parallel way. It will not wait for the previous code to be executed.
-
-
 ## What is synchronous code?
 - Synchronous code is the code that will run in a sequence. It will wait for the previous code to be executed.
 - By default, the javascript code is synchronous and single-threaded. It means that the code will run in a sequence and it will wait for the previous code to be executed. The execution of the code will be done in a single thread. Execute one line of code at a time. 
