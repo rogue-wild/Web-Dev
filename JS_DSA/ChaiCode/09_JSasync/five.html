@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+                .main {
+                        margin: 30vh 40vw;
+                        align-items: center;
+                        text-align: center;
+                }
+
+                .Keybox {
+                        margin: 2rem;
+                        padding: 1rem;
+                        background-color: black;
+                        box-shadow: 2px 2px 10px rgb(80, 80, 80);
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                        border-bottom-left-radius: 50px;
+                        border-bottom-right-radius: 50px;
+                        transition: transform 0.3s ease;
+                }
+
+                .keyPress {
+                        margin: 1rem;
+                        padding: 1rem;
+                        color: white;
+                        font-size: 5rem;
+                        text-shadow: 2px 2px 2px gray;
+                        min-height: 100px;
+                        min-width: 100px;
+
+                }
+
+                .Keybox.animate {
+                        transform: scale(1.1);
+                }
+        </style>
+</head>
+
+<body>
+        <div class="main">
+                <p class="para">Press a Key to see the magic</p>
+                <div class="Keybox">
+                        <h1 class="keyPress"></h1>
+                </div>
+        </div>
+
+</body>
+<script>
+        const keyPress = document.querySelector(".keyPress");
+        const Keybox = document.querySelector(".Keybox")
+
+        document.addEventListener("keypress", function (e) {
+                console.log(e.key);
+                keyPress.innerHTML = e.key;
+                Keybox.classList.add('animate');
+                setTimeout(() => Keybox.classList.remove('animate'), 300);
+        })
+
+</script>
+
+</html>

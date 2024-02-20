@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+        <h1>Chai aur Code</h1>
+        <button id="stop">Stop</button>
+</body>
+<script>
+        const sayHi = function () {
+                console.log("Hello");
+        }
+
+        setTimeout(sayHi, 3000);
+        //correct way to call function in setTimeout as it will call the function after 3 seconds as expected
+
+        //setTimeout(sayHi(), 3000);
+        //wrong way to call function in setTimeout as it will call the function immediately and not after 3 seconds as expected 
+
+        // const newText = document.querySelector("h1");
+        
+        // setTimeout(function () {
+        //         newText.innerText = "Best JS Course";
+        // }, 3000);
+
+        // OR  
+        const newText = function () {
+                document.querySelector("h1").innerText = "Best JS Course";
+        }
+        const changeMe = setTimeout(newText, 3000);
+        
+        // clearTimeout(changeMe);//to stop the setTimeout function
+
+        const stop = document.getElementById("stop");
+        stop.addEventListener("click", function () {
+                clearTimeout(changeMe);
+                console.log("Stopped");
+        });
+        //to stop the setTimeout function on button click event
+        
+        //clearTimeout is used to stop the setTimeout function 
+        
+        //clearInterval is used to stop the setInterval function
+        
+        //clearTimeout and clearInterval both are used to stop the function which is called after some time interval
+        
+        //setTimeout and setInterval both are used to call the function after some time interval
+        
+        //setTimeout is used to call the function only once after some time interval
+        
+        //setInterval is used to call the function repeatedly after some time interval
+
+</script>
+
+</html>
+
+<!-- In JavaScript, functions are first-class objects. This means they can be assigned to variables, stored in data structures, passed as arguments to other functions, and returned as values from other functions.
+
+When you refer to a function without parentheses, like sayHi, you're referencing the function object. You're not calling or invoking the function; you're just pointing to the function itself. This is useful when you want to pass the function as an argument to another function, like setTimeout.
+
+When you add parentheses after the function name, like sayHi(), you're invoking or calling the function. This tells JavaScript to execute the function right now and return its result.
+
+In the context of setTimeout, you want to pass a reference to a function (sayHi), not the result of a function (sayHi()). setTimeout will then call this function after the specified delay. If you pass sayHi(), the function gets called immediately, and setTimeout receives its result, not the function itself.   -->
