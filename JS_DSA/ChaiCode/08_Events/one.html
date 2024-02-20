@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>htnml Events </title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+        <h2>Amazing image</h2>
+        <div>
+                <ul id="images">
+                        <li><img width="200px" id="photoshop"
+                                        src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt="photoshop"></li>
+                        <li><img width="200px" id="japan"
+                                        src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt=""></li>
+                        <li><img width="200px" id="river"
+                                        src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt=""></li>
+                        <li><img width="200px" id="owl"
+                                        src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt=""></li>
+                        <li><img width="200px" id="prayer"
+                                        src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt=""></li>
+                        <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+                </ul>
+        </div>
+</body>
+<script>
+        // document.getElementById("owl").onclick = function () {
+        //         alert("Owl Clicked!");
+        // console.log(e.type); //it will show the type of event that is being triggered
+        // };
+        //attachEvent() //jQuery - on eventListener 
+
+        // document.getElementById("images").addEventListener("click", function (e) {
+        //         console.log("Clicked Inside ul");
+        // }, false)
+
+        // document.getElementById("owl").addEventListener("click", function (e) {
+        //         console.log("Owl Clicked");
+        //         e.stopPropagation();
+        //         //stop event propagation from the target element to the parent element
+        // }, false) //you can remove false and it will still work
+
+        //event propagation - bubbling and capturing 
+        //false - bubbling up from the target element to the parent element
+        //true - capturing down from the parent element to the target element
+
+        //Learn about events e, type, timestamp, defaultPrevented
+        //target, toElement, srcElement, currentTarget,
+        //clientX, clientY, screenX, screenY
+        //altkey, ctrlkey, shiftkey, keyCode  
+
+        // document.getElementById("google").addEventListener("click", function (e) {
+        //         e.preventDefault(); //prevent the default action of the event
+        //         e.stopPropagation(); //stop event propagation
+        //         //diference between stopPropagation and stopImmediatePropagation
+        //         //stopImmediatePropagation stops the event from bubbling up and also prevents any other event handlers from being called on the same element 
+        //         //stopPropagation only stops the event from bubbling up to the parent element 
+        //         console.log("Google Clicked");
+        // }, false)
+
+        document.querySelector("#images").addEventListener("click", function (e) {
+
+                // console.log(e.target.parentNode); //target is the element that triggered the event 
+                //parentNode is the parent of the target element
+                //currentTarget is the element that the event listener is attached to 
+                // console.log(e.currentTarget); here which means the ul element 
+                // let removeIt = e.target.parentNode.removeChild(e.target); --> this is wrong because it will remove the images only and not the li
+                console.log(e.target.tagName);//tagName will show the tag name of the element that triggered the event
+                if (e.target.tagName === "IMG") {
+                        console.log(e.target.id);
+                        let removeIt = e.target.parentNode;
+                        removeIt.remove();
+                }
+                // let removeIt = e.target.parentNode
+                //  removeIt.remove(); //this will remove the li element that contains the image but also the google link but we can fix that by adding a condition 
+                // removeIt.parentNode.removeChild(removeIt);
+
+        })
+
+</script>
+
+</html>
